@@ -31,7 +31,7 @@
         .nav-links a { margin-left: 20px; color: var(--text-secondary); font-size: 0.9rem; }
         .nav-links a:hover { color: var(--accent); }
 
-        /* --- HERO SECTION (Updated for Headshot) --- */
+        /* --- HERO SECTION --- */
         .hero { min-height: 80vh; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
         .hero-text { flex: 1; }
         .hero h1 { font-size: 3.5rem; margin-bottom: 10px; line-height: 1.1; }
@@ -53,12 +53,13 @@
         .btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
 
         /* --- SKILLS GRID --- */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+        /* Added margin-bottom to ensure the border doesn't intersect with the tags */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; margin-bottom: 20px; }
         .skill-category h3 { color: var(--accent); margin-bottom: 10px; font-size: 1.1rem; }
         .tags { display: flex; flex-wrap: wrap; gap: 10px; }
         .tag { background: var(--card-bg); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #334155; }
 
-        /* --- EXPERIENCE TIMELINE (Updated for Images) --- */
+        /* --- EXPERIENCE & EDUCATION CARDS --- */
         .job-card { 
             background: var(--card-bg); 
             padding: 25px; 
@@ -71,7 +72,7 @@
         }
         .job-content { flex: 2; }
         
-        /* Project Image Styling */
+        /* Image Styling */
         .job-image {
             flex: 1;
             max-width: 250px;
@@ -103,7 +104,7 @@
             
             .job-card { flex-direction: column; }
             .job-image { max-width: 100%; width: 100%; margin-top: 15px; }
-            .job-image img { max-height: 300px; width: 100%; object-fit: cover; }
+            .job-image img { max-height: 200px; width: 100%; object-fit: cover; }
         }
     </style>
 </head>
@@ -130,7 +131,7 @@
             <h2>I build intelligent robotic systems.</h2>
             <p>
                 M.S. Robotics candidate at Georgia Tech. I specialize in bridging the gap between simulation and reality 
-                using ROS2, Computer Vision, and Nonlinear Controls. Currently researching bipedal locomotion and sim-to-real transfer.
+                using ROS2, Computer Vision, and Nonlinear Controls. Currently researching bipedal locomotion and sim-to-real transfer[cite: 5, 20, 22].
             </p>
             <a href="#contact" class="btn">Get In Touch</a>
         </div>
@@ -183,18 +184,18 @@
                 <div class="job-header">
                     <div class="job-title">Graduate Robotics Researcher</div>
                     <div class="job-company">Dynamic Mobility Lab (Dynamo)</div>
-                    <span class="job-date">July 2025 - Present</span>
+                    <span class="job-date">July 2025 - Present [cite: 19]</span>
                 </div>
                 <div class="job-details">
                     <ul>
-                        <li>Investigating ground reaction force (GRF) data to train bipedal locomotion policies.</li>
-                        <li>Implementing policies in IsaacSim and MuJoCo for Unitree G1 hardware.</li>
-                        <li>Goal: Achieve more natural and stable gaits for humanoids.</li>
+                        <li>Investigating ground reaction force (GRF) data to train bipedal locomotion policies using imitation learning[cite: 20].</li>
+                        <li>Implementing policies in IsaacSim and MuJoCo to bridge the sim-to-real gap for Unitree G1 hardware[cite: 22].</li>
+                        <li>Hypothesis: GRF data will lead to more natural and stable gaits for humanoids[cite: 21].</li>
                     </ul>
                 </div>
             </div>
             <div class="job-image">
-                <img src="dynamo.jpg" alt="Bipedal Robot Simulation" 
+                <img src="dynamo.jpg" alt="Dynamo Lab Project" 
                      onerror="this.src='https://placehold.co/400x300/1e293b/FFF?text=Dynamo+Project'">
             </div>
         </div>
@@ -204,12 +205,12 @@
                 <div class="job-header">
                     <div class="job-title">Graduate Robotics Researcher</div>
                     <div class="job-company">Georgia Tech Robotarium</div>
-                    <span class="job-date">May 2025 - Present</span>
+                    <span class="job-date">May 2025 - Present [cite: 26]</span>
                 </div>
                 <div class="job-details">
                     <ul>
-                        <li>Migrated backend communication to ROS2 for real-time pose streams and multi-robot coordination.</li>
-                        <li>Upgraded hardware with SLAM sensors and CV cameras.</li>
+                        <li>Migrated backend communication to a ROS2-based client for real-time pose streams and multi-robot coordination[cite: 27].</li>
+                        <li>Upgraded hardware with SLAM distance sensors and CV cameras to enhance researcher capabilities[cite: 28].</li>
                     </ul>
                 </div>
             </div>
@@ -224,12 +225,13 @@
                 <div class="job-header">
                     <div class="job-title">Graduate Robotics Researcher</div>
                     <div class="job-company">LIDAR Lab</div>
-                    <span class="job-date">Aug 2024 - Present</span>
+                    <span class="job-date">Aug 2024 - Present [cite: 30]</span>
                 </div>
                 <div class="job-details">
                     <ul>
-                        <li>Designed a custom foot in Fusion for the Cassie bipedal robot to improve stability.</li>
-                        <li>Integrated tactile, IMU, and auditory sensors using C++ for terrain classification.</li>
+                        <li>Designed a custom foot in Fusion for the Cassie bipedal robot to improve stability and efficiency[cite: 31].</li>
+                        <li>Integrated tactile/IMU/auditory sensors using C++ for terrain classification algorithms[cite: 32].</li>
+                        <li>Developing Python algorithms to classify terrain characteristics for improved control stability[cite: 33].</li>
                     </ul>
                 </div>
             </div>
@@ -243,16 +245,41 @@
 
     <section id="education" class="container">
         <h2 style="margin-bottom: 20px;">Education</h2>
-        <div class="job-card" style="display: block;"> <div class="job-header">
-                <div>
+        
+        <div class="job-card">
+            <div class="job-content">
+                <div class="job-header">
                     <div class="job-title">M.S. in Robotics</div>
                     <div class="job-company">Georgia Institute of Technology</div>
+                    <span class="job-date">Exp. May 2026 [cite: 4, 8]</span>
                 </div>
-                <div class="job-date">Exp. May 2026</div>
+                <div class="job-details">
+                    <p><strong>GPA:</strong> 4.0 [cite: 5]</p>
+                    <p><strong>Selected Coursework:</strong> Robotics Research (ROS2), AI, Deep Learning, Deep RL, Networked Control, Nonlinear Controls[cite: 6, 10].</p>
+                </div>
             </div>
-            <div class="job-details">
-                <p><strong>GPA:</strong> 4.0</p>
-                <p><strong>Coursework:</strong> Robotics Research (ROS2), AI, Deep Learning, Deep RL, Networked Control.</p>
+            <div class="job-image">
+                <img src="gatech.jpg" alt="Georgia Tech Logo" 
+                     onerror="this.src='https://placehold.co/300x300/1e293b/FFF?text=Georgia+Tech'">
+            </div>
+        </div>
+
+        <div class="job-card">
+            <div class="job-content">
+                <div class="job-header">
+                    <div class="job-title">B.S. in Mechanical Engineering</div>
+                    <div class="job-company">University of Idaho</div>
+                    <span class="job-date">May 2021 [cite: 9, 11]</span>
+                </div>
+                <div class="job-details">
+                    <p><strong>GPA:</strong> 3.76 [cite: 12]</p>
+                    <p><strong>Minors:</strong> Math, Music, German[cite: 13].</p>
+                    <p><strong>Activities:</strong> Grand Challenge Scholars Program (GCSP) founding member[cite: 13].</p>
+                </div>
+            </div>
+            <div class="job-image">
+                <img src="uidaho.jpg" alt="University of Idaho Logo" 
+                     onerror="this.src='https://placehold.co/300x300/1e293b/FFF?text=U+of+Idaho'">
             </div>
         </div>
     </section>
@@ -264,8 +291,8 @@
         </p>
         <div class="contact-links">
             <a href="mailto:stevenhaener98@gmail.com">Email Me</a>
-            <a href="https://linkedin.com">LinkedIn</a>
-            <a href="https://github.com">GitHub</a>
+            <a href="https://www.linkedin.com/in/steven-haener/">LinkedIn</a>
+            <a href="https://github.com/stevenhaener">GitHub</a>
         </div>
     </section>
 
