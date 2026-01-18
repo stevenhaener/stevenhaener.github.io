@@ -5,106 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Steven Haener | Robotics Engineer</title>
     <style>
-        /* --- CSS VARIABLES & RESET --- */
         :root {
             --bg-color: #0f172a;
             --card-bg: #1e293b;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
-            --accent: #38bdf8; /* Tech Blue */
+            --accent: #38bdf8;
             --accent-hover: #0ea5e9;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        
-        body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; }
+        body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; scroll-behavior: smooth; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style-position: inside; }
-
-        /* --- LAYOUT UTILITIES --- */
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-        section { padding: 60px 0; border-bottom: 1px solid #334155; }
         
-        /* --- HEADER & NAV --- */
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 80px 0; border-bottom: 1px solid #334155; }
+        
         header { position: sticky; top: 0; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); z-index: 1000; padding: 15px 0; border-bottom: 1px solid #334155; }
         nav { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
         .nav-links a { margin-left: 20px; color: var(--text-secondary); font-size: 0.9rem; }
         .nav-links a:hover { color: var(--accent); }
 
-        /* --- HERO SECTION --- */
-        .hero { min-height: 80vh; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+        /* HERO */
+        .hero { min-height: 70vh; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
         .hero-text { flex: 1; }
         .hero h1 { font-size: 3.5rem; margin-bottom: 10px; line-height: 1.1; }
         .hero h2 { font-size: 1.5rem; color: var(--text-secondary); margin-bottom: 20px; font-weight: 400; }
-        .hero p { max-width: 600px; color: var(--text-secondary); margin-bottom: 30px; }
-        
-        /* Headshot Styling */
-        .hero-img-container { flex: 0 0 300px; display: flex; justify-content: center; }
-        .profile-img { 
-            width: 280px; 
-            height: 280px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            border: 4px solid var(--accent);
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
-        }
-        
-        .btn { display: inline-block; padding: 12px 24px; background: var(--accent); color: var(--bg-color); font-weight: bold; border-radius: 5px; }
-        .btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+        .profile-img { width: 280px; height: 280px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent); box-shadow: 0 0 20px rgba(56, 189, 248, 0.3); }
 
-        /* --- SKILLS GRID --- */
-        /* Added margin-bottom to ensure the border doesn't intersect with the tags */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; margin-bottom: 20px; }
-        .skill-category h3 { color: var(--accent); margin-bottom: 10px; font-size: 1.1rem; }
-        .tags { display: flex; flex-wrap: wrap; gap: 10px; }
-        .tag { background: var(--card-bg); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #334155; }
+        /* BUTTONS */
+        .btn { display: inline-block; padding: 10px 20px; background: var(--accent); color: var(--bg-color); font-weight: bold; border-radius: 5px; cursor: pointer; border: none; font-size: 0.9rem; margin-top: 15px; }
+        .btn:hover { background: var(--accent-hover); }
+        .btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent); margin-left: 10px; }
 
-        /* --- EXPERIENCE & EDUCATION CARDS --- */
-        .job-card { 
-            background: var(--card-bg); 
-            padding: 25px; 
-            border-radius: 8px; 
-            margin-bottom: 30px; 
-            border: 1px solid #334155; 
-            display: flex; 
-            gap: 20px;
-            align-items: flex-start;
-        }
-        .job-content { flex: 2; }
+        /* SKILLS */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin: 40px 0; }
+        .skill-category h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.1rem; border-left: 3px solid var(--accent); padding-left: 10px; }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #1e293b; padding: 4px 12px; border-radius: 15px; font-size: 0.8rem; border: 1px solid #334155; color: var(--text-secondary); }
+
+        /* PROJECT CARDS */
+        .card { background: var(--card-bg); padding: 30px; border-radius: 12px; margin-bottom: 30px; border: 1px solid #334155; display: flex; gap: 30px; }
+        .card-content { flex: 2; }
+        .card-image { flex: 1; max-width: 250px; }
+        .card-image img { width: 100%; border-radius: 8px; border: 1px solid #475569; }
         
-        /* Image Styling */
-        .job-image {
-            flex: 1;
-            max-width: 250px;
-        }
-        .job-image img {
-            width: 100%;
-            height: auto;
+        .card-title { font-size: 1.3rem; font-weight: bold; margin-bottom: 5px; }
+        .card-subtitle { color: var(--accent); font-weight: 600; margin-bottom: 5px; display: block; }
+        .card-date { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 15px; display: block; }
+
+        /* COLLAPSIBLE DETAILS */
+        .details-content { 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.3s ease-out; 
+            background: rgba(15, 23, 42, 0.3); 
             border-radius: 5px;
-            border: 1px solid #334155;
-            object-fit: cover;
+            margin-top: 10px;
         }
+        .details-content.active { max-height: 1000px; padding: 15px; border: 1px dashed #334155; }
+        .details-content p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 10px; }
+        .details-content ul { padding-left: 20px; color: var(--text-secondary); font-size: 0.9rem; }
 
-        .job-header { margin-bottom: 10px; }
-        .job-title { font-weight: bold; font-size: 1.1rem; color: var(--text-primary); }
-        .job-company { color: var(--accent); }
-        .job-date { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 10px; display: block; }
-        .job-details ul { margin-top: 10px; color: var(--text-secondary); font-size: 0.95rem; padding-left: 20px;}
-        .job-details li { margin-bottom: 5px; }
+        /* FOOTER */
+        .contact-links { margin-top: 30px; display: flex; gap: 20px; flex-wrap: wrap; }
+        .contact-links a { color: var(--accent); font-weight: bold; border-bottom: 1px solid transparent; }
+        .contact-links a:hover { border-bottom: 1px solid var(--accent); }
 
-        /* --- CONTACT --- */
-        .contact-links { margin-top: 20px; }
-        .contact-links a { margin-right: 20px; font-size: 1.1rem; border-bottom: 1px solid var(--accent); }
-
-        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero { flex-direction: column-reverse; text-align: center; justify-content: center;}
-            .hero-img-container { margin-bottom: 20px; }
-            .hero h1 { font-size: 2.5rem; }
-            
-            .job-card { flex-direction: column; }
-            .job-image { max-width: 100%; width: 100%; margin-top: 15px; }
-            .job-image img { max-height: 200px; width: 100%; object-fit: cover; }
+            .hero { flex-direction: column-reverse; text-align: center; }
+            .card { flex-direction: column; }
+            .card-image { max-width: 100%; }
         }
     </style>
 </head>
@@ -115,9 +86,9 @@
             <nav>
                 <a href="#" class="logo">S. Haener</a>
                 <div class="nav-links">
+                    <a href="#projects">Research</a>
                     <a href="#experience">Experience</a>
                     <a href="#skills">Skills</a>
-                    <a href="#education">Education</a>
                     <a href="#contact">Contact</a>
                 </div>
             </nav>
@@ -126,179 +97,148 @@
 
     <section class="hero container">
         <div class="hero-text">
-            <p style="color: var(--accent); margin-bottom: 0;">Hi, my name is</p>
-            <h1>Steven Haener.</h1>
-            <h2>I build intelligent robotic systems.</h2>
-            <p>
-                M.S. Robotics candidate at Georgia Tech. I specialize in bridging the gap between simulation and reality 
-                using ROS2, Computer Vision, and Nonlinear Controls. Currently researching bipedal locomotion and sim-to-real transfer[cite: 5, 20, 22].
-            </p>
-            <a href="#contact" class="btn">Get In Touch</a>
+            <p style="color: var(--accent); margin-bottom: 5px;">Steven Haener</p>
+            <h1>Robotics & Control Engineer</h1>
+            <p>M.S. Robotics @ Georgia Tech. Specializing in bipedal locomotion, sim-to-real transfer, and autonomous system design.</p>
+            <a href="#contact" class="btn">Connect With Me</a>
+            <a href="Haener_Resume.pdf" class="btn btn-outline" target="_blank">Download Resume PDF</a>
         </div>
-        
         <div class="hero-img-container">
-            <img src="headshot.jpg" alt="Steven Haener Headshot" class="profile-img" 
-                 onerror="this.src='https://placehold.co/300x300/1e293b/FFF?text=Add+Headshot'">
+            <img src="headshot.jpg" alt="Steven Haener" class="profile-img" onerror="this.src='https://placehold.co/300x300/1e293b/38bdf8?text=SH'">
         </div>
     </section>
 
-    <section id="skills" class="container">
-        <h2 style="margin-bottom: 20px;">Technical Arsenal</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Robotics & AI</h3>
-                <div class="tags">
-                    <span class="tag">ROS2</span>
-                    <span class="tag">IsaacSim</span>
-                    <span class="tag">MuJoCo</span>
-                    <span class="tag">PyTorch</span>
-                    <span class="tag">Deep RL</span>
+    <section id="projects" class="container">
+        <h2 style="margin-bottom: 40px;">Research Projects</h2>
+
+        <div class="card">
+            <div class="card-content">
+                <span class="card-subtitle">Dynamic Mobility Lab (Dynamo)</span>
+                <div class="card-title">Bipedal Locomotion & GRF Integration</div>
+                <span class="card-date">July 2025 - Present</span>
+                <p>Training locomotion policies for the Unitree G1 humanoid using ground reaction force (GRF) data to achieve stable, natural gaits.</p>
+                
+                <button class="btn btn-outline" onclick="toggleDetails('dynamo-details')">View Deep Dive</button>
+                
+                <div id="dynamo-details" class="details-content">
+                    <p><strong>Methodology:</strong> Utilizing motion capture data and imitation learning pipelines to influence policy training.</p>
+                    <ul>
+                        <li>Simulating environments in <strong>IsaacSim</strong> and <strong>MuJoCo</strong>.</li>
+                        <li>Bridging the sim-to-real gap for humanoid and exoskeleton hardware.</li>
+                        <li>Analyzing the impact of force-torque sensor feedback on gait recovery during perturbations.</li>
+                    </ul>
                 </div>
             </div>
-            <div class="skill-category">
-                <h3>Languages</h3>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">C++</span>
-                    <span class="tag">MATLAB</span>
-                    <span class="tag">Linux/Bash</span>
+            <div class="card-image">
+                <img src="dynamo.jpg" alt="Dynamo Lab" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Dynamo+Research'">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <span class="card-subtitle">Georgia Tech Robotarium</span>
+                <div class="card-title">ROS2 Backend Migration & Hardware Upgrades</div>
+                <span class="card-date">May 2025 - Present</span>
+                <p>Developing a high-performance ROS2-based client for multi-robot coordination and real-time pose tracking.</p>
+                
+                <button class="btn btn-outline" onclick="toggleDetails('robotarium-details')">View Deep Dive</button>
+                
+                <div id="robotarium-details" class="details-content">
+                    <p>Improved the juggling of synchronized tracking and pose streams between the testbed and the server.</p>
+                    <ul>
+                        <li>Hardware: Integrated SLAM distance sensors and Computer Vision cameras.</li>
+                        <li>Software: Optimized communication protocols to reduce latency in swarm robotics experiments.</li>
+                    </ul>
                 </div>
             </div>
-            <div class="skill-category">
-                <h3>Design & Mfg</h3>
-                <div class="tags">
-                    <span class="tag">SolidWorks</span>
-                    <span class="tag">Fusion</span>
-                    <span class="tag">FEA</span>
-                    <span class="tag">3D Printing</span>
-                </div>
+            <div class="card-image">
+                <img src="robotarium.jpg" alt="Robotarium" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Robotarium'">
             </div>
         </div>
     </section>
 
     <section id="experience" class="container">
-        <h2 style="margin-bottom: 30px;">Where I've Worked</h2>
+        <h2 style="margin-bottom: 40px;">Industry Experience</h2>
 
-        <div class="job-card">
-            <div class="job-content">
-                <div class="job-header">
-                    <div class="job-title">Graduate Robotics Researcher</div>
-                    <div class="job-company">Dynamic Mobility Lab (Dynamo)</div>
-                    <span class="job-date">July 2025 - Present [cite: 19]</span>
-                </div>
-                <div class="job-details">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-subtitle">Campos EPC</span>
+                <div class="card-title">Mechanical Engineer 1</div>
+                <span class="card-date">June 2023 - June 2024</span>
+                <p>Engineered automation systems and pipeline infrastructure for large-scale utility clients.</p>
+                
+                <button class="btn btn-outline" onclick="toggleDetails('campos-details')">View Details</button>
+                
+                <div id="campos-details" class="details-content">
                     <ul>
-                        <li>Investigating ground reaction force (GRF) data to train bipedal locomotion policies using imitation learning[cite: 20].</li>
-                        <li>Implementing policies in IsaacSim and MuJoCo to bridge the sim-to-real gap for Unitree G1 hardware[cite: 22].</li>
-                        <li>Hypothesis: GRF data will lead to more natural and stable gaits for humanoids[cite: 21].</li>
+                        <li>Assessed As-Built and IFC drawings for control valves and pumps.</li>
+                        <li>Coordinated with clients to ensure engineering standards were met for safety and reliability.</li>
                     </ul>
                 </div>
             </div>
-            <div class="job-image">
-                <img src="dynamo.jpg" alt="Dynamo Lab Project" 
-                     onerror="this.src='https://placehold.co/400x300/1e293b/FFF?text=Dynamo+Project'">
+            <div class="card-image">
+                <img src="campos.jpg" alt="Campos EPC" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Engineering'">
             </div>
         </div>
 
-        <div class="job-card">
-            <div class="job-content">
-                <div class="job-header">
-                    <div class="job-title">Graduate Robotics Researcher</div>
-                    <div class="job-company">Georgia Tech Robotarium</div>
-                    <span class="job-date">May 2025 - Present [cite: 26]</span>
-                </div>
-                <div class="job-details">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-subtitle">TerraClear Inc.</span>
+                <div class="card-title">Mechanical Engineer Intern</div>
+                <span class="card-date">Nov 2021 - Mar 2022</span>
+                <p>Automated boulder removal using drone-guided skid steers and custom-designed rock pickers.</p>
+                
+                <button class="btn btn-outline" onclick="toggleDetails('terra-details')">View Details</button>
+                
+                <div id="terra-details" class="details-content">
                     <ul>
-                        <li>Migrated backend communication to a ROS2-based client for real-time pose streams and multi-robot coordination[cite: 27].</li>
-                        <li>Upgraded hardware with SLAM distance sensors and CV cameras to enhance researcher capabilities[cite: 28].</li>
+                        <li>Reduced picker weight by <strong>40%</strong> through FEA and iterative design in SolidWorks.</li>
+                        <li>Collaborated with software teams to integrate CV-guided pathing.</li>
                     </ul>
                 </div>
             </div>
-            <div class="job-image">
-                <img src="robotarium.jpg" alt="Robotarium Swarm" 
-                     onerror="this.src='https://placehold.co/400x300/1e293b/FFF?text=Robotarium+Swarm'">
-            </div>
-        </div>
-
-        <div class="job-card">
-            <div class="job-content">
-                <div class="job-header">
-                    <div class="job-title">Graduate Robotics Researcher</div>
-                    <div class="job-company">LIDAR Lab</div>
-                    <span class="job-date">Aug 2024 - Present [cite: 30]</span>
-                </div>
-                <div class="job-details">
-                    <ul>
-                        <li>Designed a custom foot in Fusion for the Cassie bipedal robot to improve stability and efficiency[cite: 31].</li>
-                        <li>Integrated tactile/IMU/auditory sensors using C++ for terrain classification algorithms[cite: 32].</li>
-                        <li>Developing Python algorithms to classify terrain characteristics for improved control stability[cite: 33].</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="job-image">
-                <img src="lidar.jpg" alt="Cassie Robot Foot" 
-                     onerror="this.src='https://placehold.co/400x300/1e293b/FFF?text=Cassie+Robot+Foot'">
-            </div>
-        </div>
-
-    </section>
-
-    <section id="education" class="container">
-        <h2 style="margin-bottom: 20px;">Education</h2>
-        
-        <div class="job-card">
-            <div class="job-content">
-                <div class="job-header">
-                    <div class="job-title">M.S. in Robotics</div>
-                    <div class="job-company">Georgia Institute of Technology</div>
-                    <span class="job-date">Exp. May 2026 [cite: 4, 8]</span>
-                </div>
-                <div class="job-details">
-                    <p><strong>GPA:</strong> 4.0 [cite: 5]</p>
-                    <p><strong>Selected Coursework:</strong> Robotics Research (ROS2), AI, Deep Learning, Deep RL, Networked Control, Nonlinear Controls[cite: 6, 10].</p>
-                </div>
-            </div>
-            <div class="job-image">
-                <img src="gatech.jpg" alt="Georgia Tech Logo" 
-                     onerror="this.src='https://placehold.co/300x300/1e293b/FFF?text=Georgia+Tech'">
-            </div>
-        </div>
-
-        <div class="job-card">
-            <div class="job-content">
-                <div class="job-header">
-                    <div class="job-title">B.S. in Mechanical Engineering</div>
-                    <div class="job-company">University of Idaho</div>
-                    <span class="job-date">May 2021 [cite: 9, 11]</span>
-                </div>
-                <div class="job-details">
-                    <p><strong>GPA:</strong> 3.76 [cite: 12]</p>
-                    <p><strong>Minors:</strong> Math, Music, German[cite: 13].</p>
-                    <p><strong>Activities:</strong> Grand Challenge Scholars Program (GCSP) founding member[cite: 13].</p>
-                </div>
-            </div>
-            <div class="job-image">
-                <img src="uidaho.jpg" alt="University of Idaho Logo" 
-                     onerror="this.src='https://placehold.co/300x300/1e293b/FFF?text=U+of+Idaho'">
+            <div class="card-image">
+                <img src="terraclear.jpg" alt="TerraClear" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=TerraClear'">
             </div>
         </div>
     </section>
 
-    <section id="contact" class="container" style="border: none; min-height: 40vh;">
+    <section id="skills" class="container">
+        <h2>Technical Arsenal</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Robotics & AI</h3>
+                <div class="tags">
+                    <span class="tag">ROS2</span><span class="tag">IsaacSim</span><span class="tag">MuJoCo</span><span class="tag">PyTorch</span><span class="tag">Deep RL</span><span class="tag">Computer Vision</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Engineering</h3>
+                <div class="tags">
+                    <span class="tag">Python</span><span class="tag">C++</span><span class="tag">MATLAB</span><span class="tag">SolidWorks</span><span class="tag">Fusion</span><span class="tag">FEA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container" style="border: none;">
         <h2>Let's Connect</h2>
-        <p style="max-width: 600px; color: var(--text-secondary); margin-bottom: 20px;">
-            I am currently looking for full-time opportunities in robotics automation. My inbox is always open.
-        </p>
+        <p>Currently seeking full-time opportunities in robotics controls and automation.</p>
         <div class="contact-links">
             <a href="mailto:stevenhaener98@gmail.com">Email Me</a>
-            <a href="https://www.linkedin.com/in/steven-haener/">LinkedIn</a>
-            <a href="https://github.com/stevenhaener">GitHub</a>
+            <a href="https://www.linkedin.com/in/steven-haener/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/stevenhaener" target="_blank">GitHub</a>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 20px; color: #475569; font-size: 0.8rem;">
-        <p>Designed & Built by Steven Haener</p>
-    </footer>
+    <script>
+        function toggleDetails(id) {
+            const content = document.getElementById(id);
+            content.classList.toggle('active');
+            const btn = event.target;
+            btn.innerText = content.classList.contains('active') ? 'Close Deep Dive' : 'View Deep Dive';
+        }
+    </script>
 
 </body>
 </html>
