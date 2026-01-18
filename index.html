@@ -44,7 +44,7 @@
         .tags { display: flex; flex-wrap: wrap; gap: 8px; }
         .tag { background: #1e293b; padding: 4px 12px; border-radius: 15px; font-size: 0.8rem; border: 1px solid #334155; color: var(--text-secondary); }
 
-        /* PROJECT CARDS */
+        /* CARDS */
         .card { background: var(--card-bg); padding: 30px; border-radius: 12px; margin-bottom: 30px; border: 1px solid #334155; display: flex; gap: 30px; }
         .card-content { flex: 2; }
         .card-image { flex: 1; max-width: 250px; }
@@ -54,7 +54,7 @@
         .card-subtitle { color: var(--accent); font-weight: 600; margin-bottom: 5px; display: block; }
         .card-date { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 15px; display: block; }
 
-        /* COLLAPSIBLE DETAILS */
+        /* COLLAPSIBLE */
         .details-content { 
             max-height: 0; 
             overflow: hidden; 
@@ -66,11 +66,6 @@
         .details-content.active { max-height: 1000px; padding: 15px; border: 1px dashed #334155; }
         .details-content p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 10px; }
         .details-content ul { padding-left: 20px; color: var(--text-secondary); font-size: 0.9rem; }
-
-        /* FOOTER */
-        .contact-links { margin-top: 30px; display: flex; gap: 20px; flex-wrap: wrap; }
-        .contact-links a { color: var(--accent); font-weight: bold; border-bottom: 1px solid transparent; }
-        .contact-links a:hover { border-bottom: 1px solid var(--accent); }
 
         @media (max-width: 768px) {
             .hero { flex-direction: column-reverse; text-align: center; }
@@ -87,8 +82,8 @@
                 <a href="#" class="logo">S. Haener</a>
                 <div class="nav-links">
                     <a href="#projects">Research</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#skills">Skills</a>
+                    <a href="#experience">Work</a>
+                    <a href="#education">Education</a>
                     <a href="#contact">Contact</a>
                 </div>
             </nav>
@@ -116,69 +111,126 @@
                 <span class="card-subtitle">Dynamic Mobility Lab (Dynamo)</span>
                 <div class="card-title">Bipedal Locomotion & GRF Integration</div>
                 <span class="card-date">July 2025 - Present</span>
-                <p>Training locomotion policies for the Unitree G1 humanoid using ground reaction force (GRF) data to achieve stable, natural gaits.</p>
-                
+                <p>Training locomotion policies for the Unitree G1 humanoid using ground reaction force (GRF) data.</p>
                 <button class="btn btn-outline" onclick="toggleDetails('dynamo-details')">View Deep Dive</button>
-                
                 <div id="dynamo-details" class="details-content">
-                    <p><strong>Methodology:</strong> Utilizing motion capture data and imitation learning pipelines to influence policy training.</p>
                     <ul>
-                        <li>Simulating environments in <strong>IsaacSim</strong> and <strong>MuJoCo</strong>.</li>
-                        <li>Bridging the sim-to-real gap for humanoid and exoskeleton hardware.</li>
-                        <li>Analyzing the impact of force-torque sensor feedback on gait recovery during perturbations.</li>
+                        <li>Investigating the influence of GRF data on policy training using motion capture and imitation learning.</li>
+                        <li>Implementing policies in <strong>IsaacSim</strong> and <strong>MuJoCo</strong> for sim-to-real transfer.</li>
+                        <li>Targeting more natural and stable gaits for humanoids and exoskeletons.</li>
                     </ul>
                 </div>
             </div>
-            <div class="card-image">
-                <img src="dynamo.jpg" alt="Dynamo Lab" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Dynamo+Research'">
-            </div>
+            <div class="card-image"><img src="dynamo.jpg" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Dynamo'"></div>
         </div>
 
         <div class="card">
             <div class="card-content">
                 <span class="card-subtitle">Georgia Tech Robotarium</span>
-                <div class="card-title">ROS2 Backend Migration & Hardware Upgrades</div>
+                <div class="card-title">ROS2 Backend Migration</div>
                 <span class="card-date">May 2025 - Present</span>
-                <p>Developing a high-performance ROS2-based client for multi-robot coordination and real-time pose tracking.</p>
-                
+                <p>Migrated backend communication to a ROS2-based client for synchronized tracking and multi-robot coordination.</p>
                 <button class="btn btn-outline" onclick="toggleDetails('robotarium-details')">View Deep Dive</button>
-                
                 <div id="robotarium-details" class="details-content">
-                    <p>Improved the juggling of synchronized tracking and pose streams between the testbed and the server.</p>
                     <ul>
-                        <li>Hardware: Integrated SLAM distance sensors and Computer Vision cameras.</li>
-                        <li>Software: Optimized communication protocols to reduce latency in swarm robotics experiments.</li>
+                        <li>Handling real-time pose streams for swarm robotics testbeds.</li>
+                        <li>Upgraded hardware with SLAM distance sensors and CV cameras.</li>
                     </ul>
                 </div>
             </div>
-            <div class="card-image">
-                <img src="robotarium.jpg" alt="Robotarium" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Robotarium'">
+            <div class="card-image"><img src="robotarium.jpg" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Robotarium'"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <span class="card-subtitle">LIDAR Lab</span>
+                <div class="card-title">Cassie Bipedal Terrain Classification</div>
+                <span class="card-date">Aug 2024 - Present</span>
+                <p>Designing custom foot hardware and integrating multimodal sensors for terrain classification.</p>
+                <button class="btn btn-outline" onclick="toggleDetails('lidar-details')">View Deep Dive</button>
+                <div id="lidar-details" class="details-content">
+                    <ul>
+                        <li>Designed custom foot in Fusion for the Cassie robot to improve stability.</li>
+                        <li>Integrated tactile, IMU, and auditory sensors using C++ and Python.</li>
+                        <li>Developing algorithms to classify terrain for improved control stability.</li>
+                    </ul>
+                </div>
             </div>
+            <div class="card-image"><img src="lidar.jpg" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=LIDAR+Lab'"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <span class="card-subtitle">Institution / Lab Name</span>
+                <div class="card-title">Project Title Placeholder</div>
+                <span class="card-date">Date Range</span>
+                <p>Brief summary of the research objective and high-level impact.</p>
+                <button class="btn btn-outline" onclick="toggleDetails('res-1-details')">View Deep Dive</button>
+                <div id="res-1-details" class="details-content">
+                    <ul>
+                        <li>Technical detail regarding methodology or software stack.</li>
+                        <li>Specific hardware or simulation environments used.</li>
+                        <li>Key results or current status of the project.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-image"><img src="project1.jpg" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Research+Slot+1'"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <span class="card-subtitle">Institution / Lab Name</span>
+                <div class="card-title">Project Title Placeholder</div>
+                <span class="card-date">Date Range</span>
+                <p>Brief summary of the research objective and high-level impact.</p>
+                <button class="btn btn-outline" onclick="toggleDetails('res-2-details')">View Deep Dive</button>
+                <div id="res-2-details" class="details-content">
+                    <ul>
+                        <li>Technical detail regarding methodology or software stack.</li>
+                        <li>Specific hardware or simulation environments used.</li>
+                        <li>Key results or current status of the project.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-image"><img src="project2.jpg" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Research+Slot+2'"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <span class="card-subtitle">Institution / Lab Name</span>
+                <div class="card-title">Project Title Placeholder</div>
+                <span class="card-date">Date Range</span>
+                <p>Brief summary of the research objective and high-level impact.</p>
+                <button class="btn btn-outline" onclick="toggleDetails('res-3-details')">View Deep Dive</button>
+                <div id="res-3-details" class="details-content">
+                    <ul>
+                        <li>Technical detail regarding methodology or software stack.</li>
+                        <li>Specific hardware or simulation environments used.</li>
+                        <li>Key results or current status of the project.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-image"><img src="project3.jpg" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Research+Slot+3'"></div>
         </div>
     </section>
 
     <section id="experience" class="container">
         <h2 style="margin-bottom: 40px;">Industry Experience</h2>
-
         <div class="card">
             <div class="card-content">
                 <span class="card-subtitle">Campos EPC</span>
                 <div class="card-title">Mechanical Engineer 1</div>
                 <span class="card-date">June 2023 - June 2024</span>
-                <p>Engineered automation systems and pipeline infrastructure for large-scale utility clients.</p>
-                
+                <p>Engineered automation systems and pipeline infrastructure for utility clients.</p>
                 <button class="btn btn-outline" onclick="toggleDetails('campos-details')">View Details</button>
-                
                 <div id="campos-details" class="details-content">
                     <ul>
                         <li>Assessed As-Built and IFC drawings for control valves and pumps.</li>
-                        <li>Coordinated with clients to ensure engineering standards were met for safety and reliability.</li>
+                        <li>Tailored designs to specific client and safety standards.</li>
                     </ul>
                 </div>
             </div>
-            <div class="card-image">
-                <img src="campos.jpg" alt="Campos EPC" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Engineering'">
-            </div>
+            <div class="card-image"><img src="campos.jpg" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Campos+EPC'"></div>
         </div>
 
         <div class="card">
@@ -186,20 +238,56 @@
                 <span class="card-subtitle">TerraClear Inc.</span>
                 <div class="card-title">Mechanical Engineer Intern</div>
                 <span class="card-date">Nov 2021 - Mar 2022</span>
-                <p>Automated boulder removal using drone-guided skid steers and custom-designed rock pickers.</p>
-                
+                <p>Automated boulder removal via drone-guided systems and custom rock pickers.</p>
                 <button class="btn btn-outline" onclick="toggleDetails('terra-details')">View Details</button>
-                
                 <div id="terra-details" class="details-content">
                     <ul>
-                        <li>Reduced picker weight by <strong>40%</strong> through FEA and iterative design in SolidWorks.</li>
-                        <li>Collaborated with software teams to integrate CV-guided pathing.</li>
+                        <li>Reduced picker weight by 40% using FEA and SolidWorks analysis.</li>
+                        <li>Integrated mechanical design with CV-guided pathing software.</li>
                     </ul>
                 </div>
             </div>
-            <div class="card-image">
-                <img src="terraclear.jpg" alt="TerraClear" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=TerraClear'">
+            <div class="card-image"><img src="terraclear.jpg" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=TerraClear'"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <span class="card-subtitle">Company Name</span>
+                <div class="card-title">Job Title Placeholder</div>
+                <span class="card-date">Date Range</span>
+                <p>Overview of responsibilities and major contributions to the company.</p>
+                <button class="btn btn-outline" onclick="toggleDetails('ind-1-details')">View Details</button>
+                <div id="ind-1-details" class="details-content">
+                    <ul>
+                        <li>Quantifiable achievement (e.g., reduced costs by X%, improved efficiency).</li>
+                        <li>Specific software or tools utilized in the role.</li>
+                        <li>Collaboration with cross-functional teams.</li>
+                    </ul>
+                </div>
             </div>
+            <div class="card-image"><img src="work1.jpg" onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Industry+Slot'"></div>
+        </div>
+    </section>
+
+    <section id="education" class="container">
+        <h2 style="margin-bottom: 40px;">Education</h2>
+        <div class="card">
+            <div class="card-content">
+                <span class="card-subtitle">Georgia Institute of Technology</span>
+                <div class="card-title">M.S. in Robotics</div>
+                <span class="card-date">Exp. May 2026</span>
+                <p>GPA: 4.0. Coursework includes Deep RL, Nonlinear Controls, and Robotic Dynamics.</p>
+            </div>
+            <div class="card-image"><img src="gatech.jpg" onerror="this.src='https://placehold.co/300x300/1e293b/FFF?text=Georgia+Tech'"></div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <span class="card-subtitle">University of Idaho</span>
+                <div class="card-title">B.S. in Mechanical Engineering</div>
+                <span class="card-date">May 2021</span>
+                <p>GPA: 3.76. Minors in Math, Music, and German.</p>
+            </div>
+            <div class="card-image"><img src="uidaho.jpg" onerror="this.src='https://placehold.co/300x300/1e293b/FFF?text=U+of+Idaho'"></div>
         </div>
     </section>
 
@@ -223,11 +311,10 @@
 
     <section id="contact" class="container" style="border: none;">
         <h2>Let's Connect</h2>
-        <p>Currently seeking full-time opportunities in robotics controls and automation.</p>
-        <div class="contact-links">
-            <a href="mailto:stevenhaener98@gmail.com">Email Me</a>
-            <a href="https://www.linkedin.com/in/steven-haener/" target="_blank">LinkedIn</a>
-            <a href="https://github.com/stevenhaener" target="_blank">GitHub</a>
+        <div style="margin-top: 30px; display: flex; gap: 20px;">
+            <a href="mailto:stevenhaener98@gmail.com" style="color:var(--accent); font-weight:bold;">Email Me</a>
+            <a href="https://www.linkedin.com/in/steven-haener/" target="_blank" style="color:var(--accent); font-weight:bold;">LinkedIn</a>
+            <a href="https://github.com/stevenhaener" target="_blank" style="color:var(--accent); font-weight:bold;">GitHub</a>
         </div>
     </section>
 
@@ -235,7 +322,7 @@
         function toggleDetails(id) {
             const content = document.getElementById(id);
             content.classList.toggle('active');
-            const btn = event.target;
+            const btn = event.currentTarget;
             btn.innerText = content.classList.contains('active') ? 'Close Deep Dive' : 'View Deep Dive';
         }
     </script>
