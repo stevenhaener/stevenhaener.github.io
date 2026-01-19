@@ -94,7 +94,7 @@
         <div class="hero-text">
             <p style="color: var(--accent); margin-bottom: 5px;">Steven Haener</p>
             <h1>Robotics & Control Engineer</h1>
-            <p>M.S. Robotics @ Georgia Tech. Specializing in imitation learning, sim-to-real transfer, mechanical design, and sensor integration.</p>
+            <p>M.S. Robotics @ Georgia Tech. Specializing in imitation learning, algorithm development, mechanical design, and sensor integration.</p>
             <a href="#contact" class="btn">Connect With Me</a>
             <a href="Haener_Resume.pdf" class="btn btn-outline" target="Haener_Resume.pdf">Download Resume PDF</a>
         </div>
@@ -134,7 +134,9 @@
                 <div id="robotarium-details" class="details-content">
                     <ul>
                         <li>Handling real-time pose streams for swarm robotics testbeds.</li>
-                        <li>Upgraded hardware with SLAM distance sensors and CV cameras.</li>
+                        <li>Upgraded backend communication to a ROS2-based client.</li>
+                        <li>Upgraded hardware with SLAM distance sensors and IMUs to enhance the tools provided to
+                            researchers that wish to use the Robotarium for experiments with a larger arsenal of sensors.</li>
                     </ul>
                 </div>
             </div>
@@ -150,9 +152,12 @@
                 <button class="btn btn-outline" onclick="toggleDetails('lidar-details')">View Deep Dive</button>
                 <div id="lidar-details" class="details-content">
                     <ul>
-                        <li>Designed custom foot in Fusion for the Cassie robot to improve stability.</li>
-                        <li>Integrated tactile, IMU, and auditory sensors using C++ and Python.</li>
-                        <li>Developing algorithms to classify terrain for improved control stability.</li>
+                        <li>Designed and developed a foot in Fusion for a bipedal Cassie robot aimed at improving walking stability, slower
+                        walking gaits, and reduced actuation effort, leading to a longer lasting robot and more natural-looking movement.
+                        <li>Integrated tactile/IMU/auditory sensors using C++ with actuated tarsal segments on both sides of the foot.</li>
+                        <li>Developing Python algorithm to leverage these additional signals for classification of the terrain being walked on,
+                        informing our control system of the terrain characteristics so it can tune its strategy for increased stability.</li>
+                        <li>Writing a journal paper describing design/testing methodologies and results.</li>
                     </ul>
                 </div>
             </div>
