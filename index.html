@@ -201,9 +201,10 @@ details ul{padding-left:20px;color:var(--text-secondary);font-size:.92rem}
 
 /* ensure video fits and preserves aspect */
 .deep-dive-images video{
+  width:100%;
   height:auto;
-  max-height:360px;
-  object-fit:cover;
+  max-height:none;
+  object-fit:contain;
 }
 
 /* when panel is open, animate media in */
@@ -737,8 +738,9 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
         <div id="gt-title" class="card-title">M.S. in Robotics</div>
         <span class="card-date">Exp. May 2026</span>
         <p>GPA: 4.0 </p>
+        <p>Focuses on Artificial Intelligence, Controls, and Mechanics </p>
         <p>Coursework: Robotics Research (ROS2), AI, ML, Deep Learning, Deep RL, Networked Control, Bio-mechatronics, 
-          Advanced Dynamics, Nonlinear Controls, Robotic Dynamics/Control, Advanced Mobile Robotics.</p>
+          Advanced Dynamics, Nonlinear Controls, Robotic Dynamics/Control, Advanced Mobile Robotics</p>
       </div>
       <div class="card-image">
         <img src="gt.png" alt="Georgia Tech logo" loading="lazy"
@@ -751,7 +753,10 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
         <span class="card-subtitle">University of Idaho</span>
         <div id="uofi-title" class="card-title">B.S. in Mechanical Engineering</div>
         <span class="card-date">May 2021</span>
-        <p>GPA: 3.76. Minors in Math, Music, and German.</p>
+        <p>GPA: 3.76 </p>
+        <p>Minors in Math, Music, and German</p>
+        <p>Coursework: Robotics, Python, Controls Systems, Dynamic Modeling, Mechanical System Design, Electrical Circuits,
+          Numerical Methods, Partial DiffEQ, Machine Component Design, Experimental Methods</p>
       </div>
       <div class="card-image">
         <img src="uofi.png" alt="University of Idaho logo" loading="lazy"
