@@ -96,6 +96,32 @@ h2{
   background:transparent;border:1px solid var(--accent);color:var(--accent);font-weight:700;
 }
 
+.deep-dive-links{
+  margin-top:14px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.deep-dive-link{
+  display:inline-flex;
+  align-items:center;
+  padding:8px 16px;
+  border-radius:8px;
+  font-weight:700;
+  font-size:.85rem;
+  background:var(--accent-gradient);
+  color:#0f172a;
+  border:none;
+  cursor:pointer;
+}
+
+.deep-dive-link.outline{
+  background:transparent;
+  border:1px solid var(--accent);
+  color:var(--accent);
+}
+
 /* Card layout */
 .card{
   display:flex;gap:28px;background:var(--card-bg);padding:28px;border-radius:14px;border:1px solid #334155;margin-bottom:26px;
@@ -395,6 +421,23 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
                   <li>Developing Python algorithms to classify terrain and adapt control parameters accordingly.</li>
                   <li>Authoring a journal paper describing design and test results.</li>
                 </ul>
+                <div class="deep-dive-links">
+                  <a
+                    class="deep-dive-link"
+                    href="https://lidarlab.gatech.edu"
+                    target="_blank"
+                    rel="noopener">
+                    LIDAR Lab Website
+                  </a>
+                
+                  <a
+                    class="deep-dive-link outline"
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener">
+                    Related Code
+                  </a>
+                </div>
               </div>
 
               <div class="deep-dive-images">
