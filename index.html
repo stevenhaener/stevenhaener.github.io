@@ -108,11 +108,81 @@ h2{
 .card-date{color:var(--accent-amber);font-size:.86rem;margin-bottom:10px;display:block}
 .card p{color:var(--text-secondary)}
 
-/* details/summary (accessible) */
+/* Existing accessible summary fallback (kept in case) */
 details{margin-top:12px}
 summary{cursor:pointer;display:inline-block}
 details div{background:rgba(15,23,42,.45);border-radius:10px;padding:12px;border:1px dashed #334155;margin-top:10px}
 details ul{padding-left:20px;color:var(--text-secondary);font-size:.92rem}
+
+/* --- NEW: Deep dive slide panel + images --- */
+.deep-dive-toggle {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 16px;
+  border-radius:8px;
+  background:transparent;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  cursor:pointer;
+  font-weight:700;
+  margin-top:12px;
+}
+
+.deep-dive-panel{
+  overflow:hidden;
+  max-height:0;
+  opacity:0;
+  transition: max-height 420ms cubic-bezier(.2,.9,.2,1), opacity 300ms ease;
+  margin-top:12px;
+}
+
+/* inner box that holds content */
+.deep-dive-inner{
+  background:rgba(15,23,42,.45);
+  border-radius:12px;
+  padding:16px;
+  border:1px dashed #334155;
+}
+
+/* layout for text + images: images stack under text on small screens */
+.deep-dive-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:18px;
+  align-items:start;
+}
+
+/* images area: side-by-side on desktop */
+.deep-dive-images{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+  align-items:start;
+}
+
+/* images themselves */
+.deep-dive-images img{
+  width:100%;
+  border-radius:10px;
+  border:1px solid #475569;
+  display:block;
+  opacity:0;
+  transform: translateY(6px);
+  transition: opacity 360ms ease, transform 360ms ease;
+}
+
+/* when panel is open, animate images in */
+.deep-dive-panel.open .deep-dive-images img{
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* responsive: stack images, make grid single column on small screens */
+@media (max-width:768px){
+  .deep-dive-grid{grid-template-columns:1fr}
+  .deep-dive-images{grid-template-columns:1fr}
+}
 
 /* skills */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:18px}
@@ -165,7 +235,6 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
         <span class="stat">Bipedal locomotion</span>
         <span class="stat">Sensor Fusion</span>
         <span class="stat">Sim-to-real</span>
-        
       </div>
 
       <div>
@@ -190,18 +259,41 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
         <span class="card-date">July 2025 – Present</span>
         <p>Training locomotion policies for the Unitree G1 humanoid using ground reaction force (GRF) data to improve dynamic feasibility and robustness.</p>
 
-        <details>
-          <summary class="btn-outline">View Deep Dive</summary>
-          <div>
-            <ul>
-              <li>Incorporated GRF into retargeting of motion-tracking data for dynamically feasible gaits.</li>
-              <li>Investigating influence of GRF on BeyondMimic and imitation learning pipelines.</li>
-              <li>Simulation work in IsaacSim and MuJoCo targeting sim-to-real transfer.</li>
-              <li>Metrics: stability improvements, lower contact violation rates (internal metrics).</li>
-            </ul>
+        <!-- NEW deep-dive toggle & panel -->
+        <button
+          class="deep-dive-toggle"
+          aria-expanded="false"
+          aria-controls="dynamo-panel"
+          data-target="dynamo-panel"
+          type="button">
+          View Deep Dive
+        </button>
+
+        <div id="dynamo-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+          <div class="deep-dive-inner">
+            <div class="deep-dive-grid">
+              <div>
+                <ul>
+                  <li>Incorporated GRF into retargeting of motion-tracking data for dynamically feasible gaits.</li>
+                  <li>Investigating influence of GRF on BeyondMimic and imitation learning pipelines.</li>
+                  <li>Simulation work in IsaacSim and MuJoCo targeting sim-to-real transfer.</li>
+                  <li>Metrics: stability improvements, lower contact violation rates (internal metrics).</li>
+                </ul>
+              </div>
+
+              <div class="deep-dive-images" aria-hidden="false">
+                <!-- first image: same as card image (duplicate visually) -->
+                <img src="g1.jpg" alt="Unitree G1 humanoid" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=G1'">
+                <!-- second image: additional deep-dive visualization -->
+                <img src="g1_grf_visualization.png" alt="GRF visualization on Unitree G1" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=GRF+Viz'">
+              </div>
+            </div>
           </div>
-        </details>
+        </div>
       </div>
+
       <div class="card-image">
         <img src="g1.jpg" alt="Unitree G1 humanoid" loading="lazy"
              onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Dynamo'">
@@ -216,17 +308,37 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
         <span class="card-date">May 2025 – Present</span>
         <p>Migrated backend communication to ROS2 for synchronized tracking and multi-robot coordination; integrated additional sensors to support SLAM and perception research.</p>
 
-        <details>
-          <summary class="btn-outline">View Deep Dive</summary>
-          <div>
-            <ul>
-              <li>Handled real-time pose streams for swarm robotics testbeds.</li>
-              <li>Upgraded hardware with SLAM distance sensors and IMUs to expand researchers' experimental capabilities.</li>
-              <li>Worked on reliability, latency reduction, and deterministic message flows.</li>
-            </ul>
+        <button
+          class="deep-dive-toggle"
+          aria-expanded="false"
+          aria-controls="robotarium-panel"
+          data-target="robotarium-panel"
+          type="button">
+          View Deep Dive
+        </button>
+
+        <div id="robotarium-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+          <div class="deep-dive-inner">
+            <div class="deep-dive-grid">
+              <div>
+                <ul>
+                  <li>Handled real-time pose streams for swarm robotics testbeds.</li>
+                  <li>Upgraded hardware with SLAM distance sensors and IMUs to expand researchers' experimental capabilities.</li>
+                  <li>Worked on reliability, latency reduction, and deterministic message flows.</li>
+                </ul>
+              </div>
+
+              <div class="deep-dive-images">
+                <img src="robotarium.png" alt="Robotarium swarm robots and tracking" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Robotarium'">
+                <img src="robotarium_topology.png" alt="Robotarium system topology diagram" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Topology'">
+              </div>
+            </div>
           </div>
-        </details>
+        </div>
       </div>
+
       <div class="card-image">
         <img src="robotarium.png" alt="Robotarium swarm robots and tracking" loading="lazy"
              onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Robotarium'">
@@ -241,18 +353,38 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
         <span class="card-date">Aug 2024 – Present</span>
         <p>Designing custom foot hardware and integrating multimodal sensors for terrain classification to inform control strategies and increase stability.</p>
 
-        <details>
-          <summary class="btn-outline">View Deep Dive</summary>
-          <div>
-            <ul>
-              <li>Designed and developed a tarsal foot in Fusion to improve walking stability and reduce actuation effort.</li>
-              <li>Integrated tactile, IMU, and auditory sensors using C++ with actuated tarsal segments.</li>
-              <li>Developing Python algorithms to classify terrain and adapt control parameters accordingly.</li>
-              <li>Authoring a journal paper describing design and test results.</li>
-            </ul>
+        <button
+          class="deep-dive-toggle"
+          aria-expanded="false"
+          aria-controls="cassie-panel"
+          data-target="cassie-panel"
+          type="button">
+          View Deep Dive
+        </button>
+
+        <div id="cassie-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+          <div class="deep-dive-inner">
+            <div class="deep-dive-grid">
+              <div>
+                <ul>
+                  <li>Designed and developed a tarsal foot in Fusion to improve walking stability and reduce actuation effort.</li>
+                  <li>Integrated tactile, IMU, and auditory sensors using C++ with actuated tarsal segments.</li>
+                  <li>Developing Python algorithms to classify terrain and adapt control parameters accordingly.</li>
+                  <li>Authoring a journal paper describing design and test results.</li>
+                </ul>
+              </div>
+
+              <div class="deep-dive-images">
+                <img src="cassie.png" alt="Cassie biped robot with custom foot" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Cassie'">
+                <img src="cassie_foot_detail.png" alt="Custom tarsal foot detail" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Foot+Detail'">
+              </div>
+            </div>
           </div>
-        </details>
+        </div>
       </div>
+
       <div class="card-image">
         <img src="cassie.png" alt="Cassie biped robot with custom foot" loading="lazy"
              onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Cassie'">
@@ -267,17 +399,37 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
         <span class="card-date">May 2020 – Sept 2020</span>
         <p>Stroke rehabilitation device prototype focused on thumb mobilization and user testing.</p>
 
-        <details>
-          <summary class="btn-outline">View Deep Dive</summary>
-          <div>
-            <ul>
-              <li>Designed and prototyped a thumb module using SolidWorks and 3D printing.</li>
-              <li>Collected force-sensor data to validate mechanical design and effectiveness.</li>
-              <li>Worked with DAQ, PLCs, and electric actuators; kept comprehensive procurement and test logs.</li>
-            </ul>
+        <button
+          class="deep-dive-toggle"
+          aria-expanded="false"
+          aria-controls="thumb-panel"
+          data-target="thumb-panel"
+          type="button">
+          View Deep Dive
+        </button>
+
+        <div id="thumb-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+          <div class="deep-dive-inner">
+            <div class="deep-dive-grid">
+              <div>
+                <ul>
+                  <li>Designed and prototyped a thumb module using SolidWorks and 3D printing.</li>
+                  <li>Collected force-sensor data to validate mechanical design and effectiveness.</li>
+                  <li>Worked with DAQ, PLCs, and electric actuators; kept comprehensive procurement and test logs.</li>
+                </ul>
+              </div>
+
+              <div class="deep-dive-images">
+                <img src="thumb.png" alt="Thumb rehabilitation prototype" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Thumb'">
+                <img src="thumb_assembly.png" alt="Assembly and internals of thumb module" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Assembly'">
+              </div>
+            </div>
           </div>
-        </details>
+        </div>
       </div>
+
       <div class="card-image">
         <img src="thumb.png" alt="Thumb rehabilitation prototype" loading="lazy"
              onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Thumb+Module'">
@@ -292,17 +444,37 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
         <span class="card-date">Nov 2017 – Dec 2019</span>
         <p>Designed and built a wheat stalk strength measurement machine for field testing and data collection.</p>
 
-        <details>
-          <summary class="btn-outline">View Deep Dive</summary>
-          <div>
-            <ul>
-              <li>Built first working prototype of stalk-strength measurement machine.</li>
-              <li>Performed multiple test rounds and field data collection across strains.</li>
-              <li>Implemented hardware, software, and data analysis for research publications.</li>
-            </ul>
+        <button
+          class="deep-dive-toggle"
+          aria-expanded="false"
+          aria-controls="wheat-panel"
+          data-target="wheat-panel"
+          type="button">
+          View Deep Dive
+        </button>
+
+        <div id="wheat-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+          <div class="deep-dive-inner">
+            <div class="deep-dive-grid">
+              <div>
+                <ul>
+                  <li>Built first working prototype of stalk-strength measurement machine.</li>
+                  <li>Performed multiple test rounds and field data collection across strains.</li>
+                  <li>Implemented hardware, software, and data analysis for research publications.</li>
+                </ul>
+              </div>
+
+              <div class="deep-dive-images">
+                <img src="pusher.jpg" alt="Wheat stalk testing machine" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Wheat+Lab'">
+                <img src="wheat_data_plot.png" alt="Wheat data plot example" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Data+Plot'">
+              </div>
+            </div>
           </div>
-        </details>
+        </div>
       </div>
+
       <div class="card-image">
         <img src="pusher.jpg" alt="Wheat stalk testing machine" loading="lazy"
              onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Wheat+Lab'">
@@ -322,17 +494,37 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
         <span class="card-date">June 2023 – June 2024</span>
         <p>Engineered and documented pipeline infrastructure and automation systems for utility clients.</p>
 
-        <details>
-          <summary class="btn-outline">View Details</summary>
-          <div>
-            <ul>
-              <li>Reviewed As-Built drawings and prepared Issued for Construction (IFC) deliverables.</li>
-              <li>Specified pumps, valves, automation, and ensured compliance with client standards.</li>
-              <li>Coordinated with stakeholders to deliver projects on schedule.</li>
-            </ul>
+        <button
+          class="deep-dive-toggle"
+          aria-expanded="false"
+          aria-controls="campos-panel"
+          data-target="campos-panel"
+          type="button">
+          View Details
+        </button>
+
+        <div id="campos-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+          <div class="deep-dive-inner">
+            <div class="deep-dive-grid">
+              <div>
+                <ul>
+                  <li>Reviewed As-Built drawings and prepared Issued for Construction (IFC) deliverables.</li>
+                  <li>Specified pumps, valves, automation, and ensured compliance with client standards.</li>
+                  <li>Coordinated with stakeholders to deliver projects on schedule.</li>
+                </ul>
+              </div>
+
+              <div class="deep-dive-images">
+                <img src="intelligent-pigging.jpg" alt="Pipeline engineering illustration" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Campos+EPC'">
+                <img src="campos_sketch.png" alt="Concept sketch or CAD" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Sketch'">
+              </div>
+            </div>
           </div>
-        </details>
+        </div>
       </div>
+
       <div class="card-image">
         <img src="intelligent-pigging.jpg" alt="Campos EPC engineering" loading="lazy"
              onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Campos+EPC'">
@@ -346,17 +538,37 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
         <span class="card-date">May 2022 – Present</span>
         <p>Assessment and reporting for large commercial buildings with focus on mechanical systems and building science.</p>
 
-        <details>
-          <summary class="btn-outline">View Details</summary>
-          <div>
-            <ul>
-              <li>Conducted building condition assessments and mechanical system evaluations.</li>
-              <li>Prepared technical reports, cost estimates, and remediation recommendations.</li>
-              <li>Researched building-science topics and implemented tight-deadline deliverables.</li>
-            </ul>
+        <button
+          class="deep-dive-toggle"
+          aria-expanded="false"
+          aria-controls="partner-panel"
+          data-target="partner-panel"
+          type="button">
+          View Details
+        </button>
+
+        <div id="partner-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+          <div class="deep-dive-inner">
+            <div class="deep-dive-grid">
+              <div>
+                <ul>
+                  <li>Conducted building condition assessments and mechanical system evaluations.</li>
+                  <li>Prepared technical reports, cost estimates, and remediation recommendations.</li>
+                  <li>Researched building-science topics and implemented tight-deadline deliverables.</li>
+                </ul>
+              </div>
+
+              <div class="deep-dive-images">
+                <img src="skyline.jpg" alt="Commercial building" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Partner'">
+                <img src="partner_report.png" alt="Report excerpt" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Report'">
+              </div>
+            </div>
           </div>
-        </details>
+        </div>
       </div>
+
       <div class="card-image">
         <img src="skyline.jpg" alt="Partner Engineering projects" loading="lazy"
              onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Partner+Engineering'">
@@ -370,16 +582,36 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
         <span class="card-date">Nov 2021 – Mar 2022</span>
         <p>Developed automated boulder removal systems combining drone perception and ground machinery.</p>
 
-        <details>
-          <summary class="btn-outline">View Details</summary>
-          <div>
-            <ul>
-              <li>Collaborated with cross-functional teams to automate rock removal from farm fields.</li>
-              <li>Performed FEA and design optimizations reducing rock-picker weight by ~40%.</li>
-            </ul>
+        <button
+          class="deep-dive-toggle"
+          aria-expanded="false"
+          aria-controls="terraclear-panel"
+          data-target="terraclear-panel"
+          type="button">
+          View Details
+        </button>
+
+        <div id="terraclear-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+          <div class="deep-dive-inner">
+            <div class="deep-dive-grid">
+              <div>
+                <ul>
+                  <li>Collaborated with cross-functional teams to automate rock removal from farm fields.</li>
+                  <li>Performed FEA and design optimizations reducing rock-picker weight by ~40%.</li>
+                </ul>
+              </div>
+
+              <div class="deep-dive-images">
+                <img src="terraclear.png" alt="TerraClear agricultural robot" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=TerraClear'">
+                <img src="terraclear_picker2.png" alt="Rock picker CAD" loading="lazy"
+                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Picker'">
+              </div>
+            </div>
           </div>
-        </details>
+        </div>
       </div>
+
       <div class="card-image">
         <img src="terraclear.png" alt="TerraClear agricultural robot" loading="lazy"
              onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=TerraClear'">
@@ -468,6 +700,92 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
     <p style="opacity:.6;margin-top:8px">Built with HTML, CSS, and JavaScript</p>
   </div>
 </footer>
+
+<!-- JS: slide open/close using actual content height for smooth animation -->
+<script>
+(function(){
+  const toggles = document.querySelectorAll('.deep-dive-toggle');
+
+  function openPanel(panel) {
+    // set to auto height then to exact px to enable transition
+    panel.style.display = 'block'; // ensure it participates in layout
+    const inner = panel.querySelector('.deep-dive-inner');
+    // Temporarily reset maxHeight to get accurate scrollHeight
+    panel.style.maxHeight = 'none';
+    const targetHeight = inner.scrollHeight + 24; // some breathing room
+    panel.style.maxHeight = '0px';
+    // Force layout
+    void panel.offsetHeight;
+    panel.style.transition = 'max-height 420ms cubic-bezier(.2,.9,.2,1), opacity 300ms ease';
+    panel.style.maxHeight = targetHeight + 'px';
+    panel.style.opacity = '1';
+    panel.classList.add('open');
+    panel.setAttribute('aria-hidden', 'false');
+  }
+
+  function closePanel(panel) {
+    panel.style.maxHeight = panel.scrollHeight + 'px'; // set to current height
+    // Force layout
+    void panel.offsetHeight;
+    panel.style.maxHeight = '0px';
+    panel.style.opacity = '0';
+    panel.classList.remove('open');
+    panel.setAttribute('aria-hidden', 'true');
+    // After transition, hide display if desired (not required)
+    panel.addEventListener('transitionend', function cleanup(e){
+      if (e.propertyName === 'max-height' && panel.style.maxHeight === '0px') {
+        // keep it block so layout remains stable; do nothing
+      }
+      panel.removeEventListener('transitionend', cleanup);
+    });
+  }
+
+  toggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.target;
+      const panel = document.getElementById(id);
+      if(!panel) return;
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      if(isOpen){
+        closePanel(panel);
+        btn.setAttribute('aria-expanded', 'false');
+        btn.textContent = btn.textContent.includes('Close') ? 'View Deep Dive' : 'View Deep Dive';
+      } else {
+        openPanel(panel);
+        btn.setAttribute('aria-expanded', 'true');
+        btn.textContent = 'Close Deep Dive';
+      }
+    });
+
+    // keyboard: toggle on Enter/Space (buttons handle natively but ensure consistent text)
+    btn.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  });
+
+  // Optional: close other panels when opening a new one (accordion behavior)
+  // If you want that behavior, uncomment below:
+  /*
+  toggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      toggles.forEach(other => {
+        if(other === btn) return;
+        const otherPanel = document.getElementById(other.dataset.target);
+        if(otherPanel && otherPanel.classList.contains('open')){
+          closePanel(otherPanel);
+          other.setAttribute('aria-expanded','false');
+          other.textContent = 'View Deep Dive';
+        }
+      });
+    });
+  });
+  */
+
+})();
+</script>
 
 </body>
 </html>
