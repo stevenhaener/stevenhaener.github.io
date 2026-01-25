@@ -398,367 +398,361 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
 
 
 
-    <!-- Georgia Tech Robotarium (first deep-dive media becomes mp4) -->
-    <article class="card" aria-labelledby="robotarium-title">
-      <div class="card-content">
-        <span class="card-subtitle">Georgia Tech Robotarium</span>
-        <div id="robotarium-title" class="card-title">ROS2 Backend Migration and Sensor Integration</div>
-        <span class="card-date">May 2025 – Present</span>
-        <p>Migrated backend communication to ROS2 for synchronized tracking and multi-robot coordination; integrated additional sensors to support SLAM and perception research.</p>
+   <!-- Georgia Tech Robotarium (fixed: deep-dive moved out to span full width) -->
+<article class="card" aria-labelledby="robotarium-title">
+  <div class="card-content">
+    <span class="card-subtitle">Georgia Tech Robotarium</span>
+    <div id="robotarium-title" class="card-title">ROS2 Backend Migration and Sensor Integration</div>
+    <span class="card-date">May 2025 – Present</span>
+    <p>Migrated backend communication to ROS2 for synchronized tracking and multi-robot coordination; integrated additional sensors to support SLAM and perception research.</p>
 
-        <button
-          class="deep-dive-toggle"
-          aria-expanded="false"
-          aria-controls="robotarium-panel"
-          data-target="robotarium-panel"
-          type="button">
-          View Deep Dive
-        </button>
-      </div>
+    <button
+      class="deep-dive-toggle"
+      aria-expanded="false"
+      aria-controls="robotarium-panel"
+      data-target="robotarium-panel"
+      type="button">
+      View Deep Dive
+    </button>
+  </div>
 
-      <div class="card-image">
-        <img src="robotarium.png" alt="Robotarium swarm robots and tracking" loading="lazy"
-             onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Robotarium'">
-      </div>
-      
-        <div id="robotarium-panel" class="deep-dive-panel" role="region" aria-hidden="true">
-          <div class="deep-dive-inner">
-            <div class="deep-dive-grid">
-              <div>
-                <ul>
-                  <li>Handled real-time pose streams for swarm robotics testbeds.</li>
-                  <li>Upgraded hardware with SLAM distance sensors and IMUs to expand researchers' experimental capabilities.</li>
-                  <li>Worked on reliability, latency reduction, and deterministic message flows.</li>
-                </ul>
-                <div class="deep-dive-links">
-                  <a
-                    class="deep-dive-link"
-                    href="https://www.robotarium.gatech.edu/"
-                    target="_blank"
-                    rel="noopener">
-                    Robotarium Website
-                  </a>
-                
-                  <a
-                    class="deep-dive-link outline"
-                    href="https://github.com/robotarium"
-                    target="_blank"
-                    rel="noopener">
-                    Robotarium GitHub
-                  </a>
-                </div>
-              </div>
+  <div class="card-image">
+    <img src="robotarium.png" alt="Robotarium swarm robots and tracking" loading="lazy"
+         onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Robotarium'">
+  </div>
 
-              <div class="deep-dive-images">
-                <!-- MP4 video — autoplay muted loop playsinline; poster fallback optional -->
-                <video class="deep-video" muted playsinline loop preload="metadata" poster="robotarium_poster.jpg" aria-label="Robotarium demo video">
-                  <source src="distance_demo.mp4" type="video/mp4">
-                  <!-- fallback image if video not supported -->
-                  <img src="robotarium.jpg" alt="Robotarium swarm robots and tracking">
-                </video>
+  <div id="robotarium-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+    <div class="deep-dive-inner">
+      <div class="deep-dive-grid">
+        <div>
+          <ul>
+            <li>Handled real-time pose streams for swarm robotics testbeds.</li>
+            <li>Upgraded hardware with SLAM distance sensors and IMUs to expand researchers' experimental capabilities.</li>
+            <li>Worked on reliability, latency reduction, and deterministic message flows.</li>
+          </ul>
+          <div class="deep-dive-links">
+            <a
+              class="deep-dive-link"
+              href="https://www.robotarium.gatech.edu/"
+              target="_blank"
+              rel="noopener">
+              Robotarium Website
+            </a>
 
-                <img src="GroundTruth_vs_Sensors.png" alt="Robotarium system topology diagram" loading="lazy"
-                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Topology'">
-              </div>
-            </div>
+            <a
+              class="deep-dive-link outline"
+              href="https://github.com/robotarium"
+              target="_blank"
+              rel="noopener">
+              Robotarium GitHub
+            </a>
           </div>
         </div>
-      </div>
-    </article>
 
-    <!-- LIDAR Lab / Cassie (first deep-dive media becomes mp4) -->
-    <article class="card" aria-labelledby="cassie-title">
-      <div class="card-content">
-        <span class="card-subtitle">LIDAR Lab</span>
-        <div id="cassie-title" class="card-title">Cassie Bipedal Terrain Classification</div>
-        <span class="card-date">Aug 2024 – Present</span>
-        <p>Designing custom foot hardware and integrating multimodal sensors for terrain classification to inform control strategies and increase stability.</p>
+        <div class="deep-dive-images">
+          <video class="deep-video" muted playsinline loop preload="metadata" poster="robotarium_poster.jpg" aria-label="Robotarium demo video">
+            <source src="distance_demo.mp4" type="video/mp4">
+            <img src="robotarium.jpg" alt="Robotarium swarm robots and tracking">
+          </video>
 
-        <button
-          class="deep-dive-toggle"
-          aria-expanded="false"
-          aria-controls="cassie-panel"
-          data-target="cassie-panel"
-          type="button">
-          View Deep Dive
-        </button>
-
-        <div id="cassie-panel" class="deep-dive-panel" role="region" aria-hidden="true">
-          <div class="deep-dive-inner">
-            <div class="deep-dive-grid">
-              <div>
-                <ul>
-                  <li>Designed and developed a tarsal foot in Fusion to improve walking stability and reduce actuation effort.</li>
-                  <li>Integrated tactile, IMU, and auditory sensors using C++ with actuated tarsal segments.</li>
-                  <li>Developing Python algorithms to classify terrain and adapt control parameters accordingly.</li>
-                  <li>Authoring a journal paper describing design and test results.</li>
-                </ul>
-                <div class="deep-dive-links">
-                  <a
-                    class="deep-dive-link"
-                    href="https://lab-idar.gatech.edu/"
-                    target="_blank"
-                    rel="noopener">
-                    LIDAR Lab Website
-                  </a>
-                
-                  <a
-                    class="deep-dive-link outline"
-                    href="https://github.com/stevenhaener/Cassie_Foot_Codebase.git"
-                    target="_blank"
-                    rel="noopener">
-                    Related Code
-                  </a>
-                </div>
-              </div>
-
-              <div class="deep-dive-images">
-                <!-- MP4 video for Cassie deep-dive -->
-                <video class="deep-video" muted playsinline loop preload="metadata" poster="cassie_poster.jpg" aria-label="Cassie demo video">
-                  <source src="cassie.mp4" type="video/mp4">
-                  <img src="cassie.png" alt="Cassie biped robot with custom foot">
-                </video>
-
-                <img src="foot_on_cassie.jpg" alt="Custom tarsal foot detail" loading="lazy"
-                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Foot+Detail'">
-              </div>
-            </div>
-          </div>
+          <img src="GroundTruth_vs_Sensors.png" alt="Robotarium system topology diagram" loading="lazy"
+               onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Topology'">
         </div>
       </div>
+    </div>
+  </div>
+</article>
 
-      <div class="card-image">
-        <img src="cassie.png" alt="Cassie biped robot with custom foot" loading="lazy"
-             onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Cassie'">
-      </div>
-    </article>
+<!-- LIDAR Lab / Cassie (fixed: deep-dive moved out to span full width) -->
+<article class="card" aria-labelledby="cassie-title">
+  <div class="card-content">
+    <span class="card-subtitle">LIDAR Lab</span>
+    <div id="cassie-title" class="card-title">Cassie Bipedal Terrain Classification</div>
+    <span class="card-date">Aug 2024 – Present</span>
+    <p>Designing custom foot hardware and integrating multimodal sensors for terrain classification to inform control strategies and increase stability.</p>
 
-    <!-- Rehab Thumb Module -->
-    <article class="card" aria-labelledby="thumb-title">
-      <div class="card-content">
-        <span class="card-subtitle">U of I Rehabilitation Robotics Lab</span>
-        <div id="thumb-title" class="card-title">Thumb Rehabilitation Module</div>
-        <span class="card-date">May 2020 – Sept 2020</span>
-        <p>Stroke rehabilitation device prototype focused on thumb mobilization and user testing.</p>
+    <button
+      class="deep-dive-toggle"
+      aria-expanded="false"
+      aria-controls="cassie-panel"
+      data-target="cassie-panel"
+      type="button">
+      View Deep Dive
+    </button>
+  </div>
 
-        <button
-          class="deep-dive-toggle"
-          aria-expanded="false"
-          aria-controls="thumb-panel"
-          data-target="thumb-panel"
-          type="button">
-          View Deep Dive
-        </button>
+  <div class="card-image">
+    <img src="cassie.png" alt="Cassie biped robot with custom foot" loading="lazy"
+         onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Cassie'">
+  </div>
 
-        <div id="thumb-panel" class="deep-dive-panel" role="region" aria-hidden="true">
-          <div class="deep-dive-inner">
-            <div class="deep-dive-grid">
-              <div>
-                <ul>
-                  <li>Designed and prototyped a thumb module using SolidWorks and 3D printing.</li>
-                  <li>Collected force-sensor data to validate mechanical design and effectiveness.</li>
-                  <li>Worked with DAQ, PLCs, and electric actuators; kept comprehensive procurement and test logs.</li>
-                </ul>
-              </div>
+  <div id="cassie-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+    <div class="deep-dive-inner">
+      <div class="deep-dive-grid">
+        <div>
+          <ul>
+            <li>Designed and developed a tarsal foot in Fusion to improve walking stability and reduce actuation effort.</li>
+            <li>Integrated tactile, IMU, and auditory sensors using C++ with actuated tarsal segments.</li>
+            <li>Developing Python algorithms to classify terrain and adapt control parameters accordingly.</li>
+            <li>Authoring a journal paper describing design and test results.</li>
+          </ul>
+          <div class="deep-dive-links">
+            <a
+              class="deep-dive-link"
+              href="https://lab-idar.gatech.edu/"
+              target="_blank"
+              rel="noopener">
+              LIDAR Lab Website
+            </a>
 
-              <div class="deep-dive-images">
-                <img src="thumb_actuated.png" alt="Thumb rehabilitation prototype" loading="lazy"
-                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Thumb'">
-                <img src="thumb_comp.png" alt="Assembly and internals of thumb module" loading="lazy"
-                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Assembly'">
-              </div>
-            </div>
+            <a
+              class="deep-dive-link outline"
+              href="https://github.com/stevenhaener/Cassie_Foot_Codebase.git"
+              target="_blank"
+              rel="noopener">
+              Related Code
+            </a>
           </div>
         </div>
-      </div>
 
-      <div class="card-image">
-        <img src="thumb.png" alt="Thumb rehabilitation prototype" loading="lazy"
-             onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Thumb+Module'">
-      </div>
-    </article>
+        <div class="deep-dive-images">
+          <video class="deep-video" muted playsinline loop preload="metadata" poster="cassie_poster.jpg" aria-label="Cassie demo video">
+            <source src="cassie.mp4" type="video/mp4">
+            <img src="cassie.png" alt="Cassie biped robot with custom foot">
+          </video>
 
-    <!-- Wheat lodging -->
-    <article class="card" aria-labelledby="wheat-title">
-      <div class="card-content">
-        <span class="card-subtitle">U of I Mechanical Agricultural Lab</span>
-        <div id="wheat-title" class="card-title">Wheat Lodging Investigation</div>
-        <span class="card-date">Nov 2017 – Dec 2019</span>
-        <p>Designed and built a wheat stalk strength measurement machine for field testing and data collection.</p>
-
-        <button
-          class="deep-dive-toggle"
-          aria-expanded="false"
-          aria-controls="wheat-panel"
-          data-target="wheat-panel"
-          type="button">
-          View Deep Dive
-        </button>
-
-        <div id="wheat-panel" class="deep-dive-panel" role="region" aria-hidden="true">
-          <div class="deep-dive-inner">
-            <div class="deep-dive-grid">
-              <div>
-                <ul>
-                  <li>Built first working prototype of stalk-strength measurement machine.</li>
-                  <li>Performed multiple test rounds and field data collection across strains.</li>
-                  <li>Implemented hardware, software, and data analysis for research publications.</li>
-                </ul>
-              </div>
-
-              <div class="deep-dive-images">
-                <img src="beam_deflect.png" alt="Wheat stalk testing machine" loading="lazy"
-                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Wheat+Lab'">
-                <img src="wheat.jpg" alt="Wheat data plot example" loading="lazy"
-                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Data+Plot'">
-              </div>
-            </div>
-          </div>
+          <img src="foot_on_cassie.jpg" alt="Custom tarsal foot detail" loading="lazy"
+               onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Foot+Detail'">
         </div>
       </div>
+    </div>
+  </div>
+</article>
 
-      <div class="card-image">
-        <img src="pusher.jpg" alt="Wheat stalk testing machine" loading="lazy"
-             onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Wheat+Lab'">
-      </div>
-    </article>
+<!-- Rehab Thumb Module (fixed: deep-dive moved out) -->
+<article class="card" aria-labelledby="thumb-title">
+  <div class="card-content">
+    <span class="card-subtitle">U of I Rehabilitation Robotics Lab</span>
+    <div id="thumb-title" class="card-title">Thumb Rehabilitation Module</div>
+    <span class="card-date">May 2020 – Sept 2020</span>
+    <p>Stroke rehabilitation device prototype focused on thumb mobilization and user testing.</p>
 
-  </section>
+    <button
+      class="deep-dive-toggle"
+      aria-expanded="false"
+      aria-controls="thumb-panel"
+      data-target="thumb-panel"
+      type="button">
+      View Deep Dive
+    </button>
+  </div>
 
-  <!-- EXPERIENCE -->
-  <section id="experience" aria-labelledby="experience-heading">
-    <h2 id="experience-heading">Industry Experience</h2>
+  <div class="card-image">
+    <img src="thumb.png" alt="Thumb rehabilitation prototype" loading="lazy"
+         onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Thumb+Module'">
+  </div>
 
-    <article class="card" aria-labelledby="campos-title">
-      <div class="card-content">
-        <span class="card-subtitle">Campos EPC</span>
-        <div id="campos-title" class="card-title">Mechanical Engineer I</div>
-        <span class="card-date">June 2023 – June 2024</span>
-        <p>Engineered and documented pipeline infrastructure and automation systems for utility clients.</p>
+  <div id="thumb-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+    <div class="deep-dive-inner">
+      <div class="deep-dive-grid">
+        <div>
+          <ul>
+            <li>Designed and prototyped a thumb module using SolidWorks and 3D printing.</li>
+            <li>Collected force-sensor data to validate mechanical design and effectiveness.</li>
+            <li>Worked with DAQ, PLCs, and electric actuators; kept comprehensive procurement and test logs.</li>
+          </ul>
+        </div>
 
-        <button
-          class="deep-dive-toggle"
-          aria-expanded="false"
-          aria-controls="campos-panel"
-          data-target="campos-panel"
-          type="button">
-          View Details
-        </button>
-
-        <div id="campos-panel" class="deep-dive-panel" role="region" aria-hidden="true">
-          <div class="deep-dive-inner">
-            <div class="deep-dive-grid">
-              <div>
-                <ul>
-                  <li>Reviewed As-Built drawings and prepared Issued for Construction (IFC) deliverables.</li>
-                  <li>Specified pumps, valves, automation, and ensured compliance with client standards.</li>
-                  <li>Coordinated with stakeholders to deliver projects on schedule.</li>
-                </ul>
-              </div>
-
-              <div class="deep-dive-images">
-                <img src="campos.png" alt="Pipeline engineering illustration" loading="lazy"
-                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Campos+EPC'">
-                <img src="compressor_station.jpg" alt="Concept sketch or CAD" loading="lazy"
-                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Sketch'">
-              </div>
-            </div>
-          </div>
+        <div class="deep-dive-images">
+          <img src="thumb_actuated.png" alt="Thumb rehabilitation prototype" loading="lazy"
+               onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Thumb'">
+          <img src="thumb_comp.png" alt="Assembly and internals of thumb module" loading="lazy"
+               onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Assembly'">
         </div>
       </div>
+    </div>
+  </div>
+</article>
 
-      <div class="card-image">
-        <img src="intelligent-pigging.jpg" alt="Campos EPC engineering" loading="lazy"
-             onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Campos+EPC'">
-      </div>
-    </article>
+<!-- Wheat lodging (fixed: deep-dive moved out) -->
+<article class="card" aria-labelledby="wheat-title">
+  <div class="card-content">
+    <span class="card-subtitle">U of I Mechanical Agricultural Lab</span>
+    <div id="wheat-title" class="card-title">Wheat Lodging Investigation</div>
+    <span class="card-date">Nov 2017 – Dec 2019</span>
+    <p>Designed and built a wheat stalk strength measurement machine for field testing and data collection.</p>
 
-    <article class="card" aria-labelledby="partner-title">
-      <div class="card-content">
-        <span class="card-subtitle">Partner Engineering and Science Inc.</span>
-        <div id="partner-title" class="card-title">Project Engineer</div>
-        <span class="card-date">May 2022 – Present</span>
-        <p>Assessment and reporting for large commercial buildings with focus on mechanical systems and building science.</p>
+    <button
+      class="deep-dive-toggle"
+      aria-expanded="false"
+      aria-controls="wheat-panel"
+      data-target="wheat-panel"
+      type="button">
+      View Deep Dive
+    </button>
+  </div>
 
-        <button
-          class="deep-dive-toggle"
-          aria-expanded="false"
-          aria-controls="partner-panel"
-          data-target="partner-panel"
-          type="button">
-          View Details
-        </button>
+  <div class="card-image">
+    <img src="pusher.jpg" alt="Wheat stalk testing machine" loading="lazy"
+         onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Wheat+Lab'">
+  </div>
 
-        <div id="partner-panel" class="deep-dive-panel" role="region" aria-hidden="true">
-          <div class="deep-dive-inner">
-            <div class="deep-dive-grid">
-              <div>
-                <ul>
-                  <li>Conducted building condition assessments and mechanical system evaluations.</li>
-                  <li>Prepared technical reports, cost estimates, and remediation recommendations.</li>
-                  <li>Researched building-science topics and implemented tight-deadline deliverables.</li>
-                </ul>
-              </div>
+  <div id="wheat-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+    <div class="deep-dive-inner">
+      <div class="deep-dive-grid">
+        <div>
+          <ul>
+            <li>Built first working prototype of stalk-strength measurement machine.</li>
+            <li>Performed multiple test rounds and field data collection across strains.</li>
+            <li>Implemented hardware, software, and data analysis for research publications.</li>
+          </ul>
+        </div>
 
-              <div class="deep-dive-images">
-                <img src="partner.png" alt="Commercial building" loading="lazy"
-                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Partner'">
-                <img src="stairwell.jpg" alt="Report excerpt" loading="lazy"
-                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Report'">
-              </div>
-            </div>
-          </div>
+        <div class="deep-dive-images">
+          <img src="beam_deflect.png" alt="Wheat stalk testing machine" loading="lazy"
+               onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Wheat+Lab'">
+          <img src="wheat.jpg" alt="Wheat data plot example" loading="lazy"
+               onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Data+Plot'">
         </div>
       </div>
+    </div>
+  </div>
+</article>
 
-      <div class="card-image">
-        <img src="skyline.jpg" alt="Partner Engineering projects" loading="lazy"
-             onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Partner+Engineering'">
-      </div>
-    </article>
+<!-- Campos EPC (Experience) - fixed -->
+<article class="card" aria-labelledby="campos-title">
+  <div class="card-content">
+    <span class="card-subtitle">Campos EPC</span>
+    <div id="campos-title" class="card-title">Mechanical Engineer I</div>
+    <span class="card-date">June 2023 – June 2024</span>
+    <p>Engineered and documented pipeline infrastructure and automation systems for utility clients.</p>
 
-    <article class="card" aria-labelledby="terraclear-title">
-      <div class="card-content">
-        <span class="card-subtitle">TerraClear Inc.</span>
-        <div id="terraclear-title" class="card-title">Mechanical Engineer Intern</div>
-        <span class="card-date">Nov 2021 – Mar 2022</span>
-        <p>Developed automated boulder removal systems combining drone perception and ground machinery.</p>
+    <button
+      class="deep-dive-toggle"
+      aria-expanded="false"
+      aria-controls="campos-panel"
+      data-target="campos-panel"
+      type="button">
+      View Details
+    </button>
+  </div>
 
-        <button
-          class="deep-dive-toggle"
-          aria-expanded="false"
-          aria-controls="terraclear-panel"
-          data-target="terraclear-panel"
-          type="button">
-          View Details
-        </button>
+  <div class="card-image">
+    <img src="intelligent-pigging.jpg" alt="Campos EPC engineering" loading="lazy"
+         onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Campos+EPC'">
+  </div>
 
-        <div id="terraclear-panel" class="deep-dive-panel" role="region" aria-hidden="true">
-          <div class="deep-dive-inner">
-            <div class="deep-dive-grid">
-              <div>
-                <ul>
-                  <li>Collaborated with cross-functional teams to automate rock removal from farm fields.</li>
-                  <li>Performed FEA and design optimizations reducing rock-picker weight by ~40%.</li>
-                </ul>
-              </div>
+  <div id="campos-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+    <div class="deep-dive-inner">
+      <div class="deep-dive-grid">
+        <div>
+          <ul>
+            <li>Reviewed As-Built drawings and prepared Issued for Construction (IFC) deliverables.</li>
+            <li>Specified pumps, valves, automation, and ensured compliance with client standards.</li>
+            <li>Coordinated with stakeholders to deliver projects on schedule.</li>
+          </ul>
+        </div>
 
-              <div class="deep-dive-images">
-                <img src="Default sting.PNG" alt="TerraClear agricultural robot" loading="lazy"
-                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=TerraClear'">
-                <img src="Flattened ground 2.PNG" alt="Rock picker CAD" loading="lazy"
-                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Picker'">
-              </div>
-            </div>
-          </div>
+        <div class="deep-dive-images">
+          <img src="campos.png" alt="Pipeline engineering illustration" loading="lazy"
+               onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Campos+EPC'">
+          <img src="compressor_station.jpg" alt="Concept sketch or CAD" loading="lazy"
+               onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Sketch'">
         </div>
       </div>
+    </div>
+  </div>
+</article>
 
-      <div class="card-image">
-        <img src="terraclear.png" alt="TerraClear agricultural robot" loading="lazy"
-             onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=TerraClear'">
+<!-- Partner Engineering (Experience) - fixed -->
+<article class="card" aria-labelledby="partner-title">
+  <div class="card-content">
+    <span class="card-subtitle">Partner Engineering and Science Inc.</span>
+    <div id="partner-title" class="card-title">Project Engineer</div>
+    <span class="card-date">May 2022 – Present</span>
+    <p>Assessment and reporting for large commercial buildings with focus on mechanical systems and building science.</p>
+
+    <button
+      class="deep-dive-toggle"
+      aria-expanded="false"
+      aria-controls="partner-panel"
+      data-target="partner-panel"
+      type="button">
+      View Details
+    </button>
+  </div>
+
+  <div class="card-image">
+    <img src="skyline.jpg" alt="Partner Engineering projects" loading="lazy"
+         onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Partner+Engineering'">
+  </div>
+
+  <div id="partner-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+    <div class="deep-dive-inner">
+      <div class="deep-dive-grid">
+        <div>
+          <ul>
+            <li>Conducted building condition assessments and mechanical system evaluations.</li>
+            <li>Prepared technical reports, cost estimates, and remediation recommendations.</li>
+            <li>Researched building-science topics and implemented tight-deadline deliverables.</li>
+          </ul>
+        </div>
+
+        <div class="deep-dive-images">
+          <img src="partner.png" alt="Commercial building" loading="lazy"
+               onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Partner'">
+          <img src="stairwell.jpg" alt="Report excerpt" loading="lazy"
+               onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Report'">
+        </div>
       </div>
-    </article>
+    </div>
+  </div>
+</article>
+
+<!-- TerraClear (Experience) - fixed -->
+<article class="card" aria-labelledby="terraclear-title">
+  <div class="card-content">
+    <span class="card-subtitle">TerraClear Inc.</span>
+    <div id="terraclear-title" class="card-title">Mechanical Engineer Intern</div>
+    <span class="card-date">Nov 2021 – Mar 2022</span>
+    <p>Developed automated boulder removal systems combining drone perception and ground machinery.</p>
+
+    <button
+      class="deep-dive-toggle"
+      aria-expanded="false"
+      aria-controls="terraclear-panel"
+      data-target="terraclear-panel"
+      type="button">
+      View Details
+    </button>
+  </div>
+
+  <div class="card-image">
+    <img src="terraclear.png" alt="TerraClear agricultural robot" loading="lazy"
+         onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=TerraClear'">
+  </div>
+
+  <div id="terraclear-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+    <div class="deep-dive-inner">
+      <div class="deep-dive-grid">
+        <div>
+          <ul>
+            <li>Collaborated with cross-functional teams to automate rock removal from farm fields.</li>
+            <li>Performed FEA and design optimizations reducing rock-picker weight by ~40%.</li>
+          </ul>
+        </div>
+
+        <div class="deep-dive-images">
+          <img src="Default sting.PNG" alt="TerraClear agricultural robot" loading="lazy"
+               onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=TerraClear'">
+          <img src="Flattened ground 2.PNG" alt="Rock picker CAD" loading="lazy"
+               onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Picker'">
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
 
   </section>
 
