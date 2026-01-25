@@ -124,7 +124,14 @@ h2{
 
 /* Card layout */
 .card{
-  display:flex;gap:28px;background:var(--card-bg);padding:28px;border-radius:14px;border:1px solid #334155;margin-bottom:26px;
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  gap:28px;
+  background:var(--card-bg);
+  padding:28px;
+  border-radius:14px;
+  border:1px solid #334155;
+  margin-bottom:26px;
 }
 .card-content{flex:2}
 .card-image{flex:1;max-width:260px}
