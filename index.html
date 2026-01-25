@@ -846,62 +846,60 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
   </div>
 </footer>
 
-<!-- JS: slide open/close using actual content height for smooth animation, and control mp4 playback -->
 <script>
-(function(){
+document.addEventListener('DOMContentLoaded', () => {
   const toggles = document.querySelectorAll('.deep-dive-toggle');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function openPanel(panel) {
     panel.style.display = 'block';
     const inner = panel.querySelector('.deep-dive-inner');
+
+    // calculate height
     panel.style.maxHeight = 'none';
-    const targetHeight = inner.scrollHeight + 24;
+    const targetHeight = inner.scrollHeight + 24; // 24px padding
     panel.style.maxHeight = '0px';
-    void panel.offsetHeight;
+    void panel.offsetHeight; // force reflow
+
+    // animate
     panel.style.transition = 'max-height 420ms cubic-bezier(.2,.9,.2,1), opacity 300ms ease';
     panel.style.maxHeight = targetHeight + 'px';
     panel.style.opacity = '1';
     panel.classList.add('open');
     panel.setAttribute('aria-hidden', 'false');
 
-    // play videos if present and user doesn't prefer reduced motion
     if (!reduceMotion) {
       panel.querySelectorAll('video').forEach(v => {
-        // attempt to play; catches will avoid errors on autoplay policy
         const playPromise = v.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(()=>{/* ignore autoplay blocked errors */});
+        if (playPromise !== undefined) playPromise.catch(()=>{});
+        // recalc height once video metadata is loaded
+        if (v.readyState < 1) {
+          v.addEventListener('loadedmetadata', () => {
+            panel.style.maxHeight = inner.scrollHeight + 24 + 'px';
+          }, { once: true });
         }
-      });
-      panel.querySelectorAll('video').forEach(v => {
-        v.addEventListener('loadedmetadata', () => {
-          panel.style.maxHeight = panel.querySelector('.deep-dive-inner').scrollHeight + 24 + 'px';
-        });
       });
     }
   }
 
   function closePanel(panel) {
-    // set to current height then to 0 to animate
     panel.style.maxHeight = panel.scrollHeight + 'px';
-    void panel.offsetHeight;
+    void panel.offsetHeight; // force reflow
     panel.style.maxHeight = '0px';
     panel.style.opacity = '0';
     panel.classList.remove('open');
     panel.setAttribute('aria-hidden', 'true');
 
-    // pause videos
     panel.querySelectorAll('video').forEach(v => {
-      try { v.pause(); v.currentTime = 0; } catch(e) {}
+      try { v.pause(); v.currentTime = 0; } catch(e){}
     });
   }
 
   toggles.forEach(btn => {
     btn.addEventListener('click', () => {
-      const id = btn.dataset.target;
-      const panel = document.getElementById(id);
+      const panel = document.getElementById(btn.dataset.target);
       if (!panel) return;
+
       const isOpen = btn.getAttribute('aria-expanded') === 'true';
       if (isOpen) {
         closePanel(panel);
@@ -914,7 +912,7 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
       }
     });
 
-    btn.addEventListener('keydown', (e) => {
+    btn.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         btn.click();
@@ -922,13 +920,10 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
     });
   });
 
-  // If user prefers reduced motion, ensure videos do not autoplay
   if (reduceMotion) {
-    document.querySelectorAll('video').forEach(v => {
-      try { v.pause(); } catch(e) {}
-    });
+    document.querySelectorAll('video').forEach(v => { try { v.pause(); } catch(e){} });
   }
-})();
+});
 </script>
 
 </body>
