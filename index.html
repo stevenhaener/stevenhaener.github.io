@@ -309,13 +309,13 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
 
     <!-- Dynamic Mobility Lab (Dynamo) -->
     <article class="card" aria-labelledby="dynamo-title">
+
       <div class="card-content">
         <span class="card-subtitle">Dynamic Mobility Lab (Dynamo)</span>
         <div id="dynamo-title" class="card-title">Bipedal Locomotion & GRF Integration</div>
         <span class="card-date">July 2025 – Present</span>
         <p>Training locomotion policies for the Unitree G1 humanoid using ground reaction force (GRF) data to improve dynamic feasibility and robustness.</p>
-
-        <!-- NEW deep-dive toggle & panel -->
+    
         <button
           class="deep-dive-toggle"
           aria-expanded="false"
@@ -325,57 +325,36 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
           View Deep Dive
         </button>
       </div>
-      
-        <div class="card-image">
-          <img src="g1.jpg" alt="Unitree G1 humanoid" loading="lazy"
-             onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Dynamo'">
-        </div>
-        
-        <div id="dynamo-panel" class="deep-dive-panel" role="region" aria-hidden="true">
-          <div class="deep-dive-inner">
-            <div class="deep-dive-grid">
-              <div>
-                <ul>
-                  <li>Incorporated GRF into retargeting of motion-tracking data for dynamically feasible gaits.</li>
-                  <li>Investigating influence of GRF on BeyondMimic and imitation learning pipelines.</li>
-                  <li>Simulation work in IsaacSim and MuJoCo targeting sim-to-real transfer.</li>
-                  <li>Metrics: stability improvements, lower contact violation rates (internal metrics).</li>
-                </ul>
-                <div class="deep-dive-links">
-                  <a
-                    class="deep-dive-link"
-                    href="https://dynamicmobility.github.io/"
-                    target="_blank"
-                    rel="noopener">
-                    Dynamo Lab Website
-                  </a>
-                
-                  <a
-                    class="deep-dive-link outline"
-                    href="https://github.com/zhxiaoyu218/FMR_project.git"
-                    target="_blank"
-                    rel="noopener">
-                    Related Code
-                  </a>
-                </div>
-              </div>
-
-              <div class="deep-dive-images" aria-hidden="false">
-                <!-- MP4 video — autoplay muted loop playsinline; poster fallback optional -->
-                <video class="deep-video" muted playsinline loop preload="metadata" poster="robotarium_poster.jpg" aria-label="Robotarium demo video">
-                  <source src="ab6.mp4" type="video/mp4">
-                  <!-- fallback image if video not supported -->
-                  <img src="robotarium.jpg" alt="Robotarium swarm robots and tracking">
-                </video>
-                <!-- second image: additional deep-dive visualization -->
-                <img src="grfs.png" alt="GRF visualization on Unitree G1" loading="lazy"
-                     onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=GRF+Viz'">
-              </div>
+    
+      <div class="card-image">
+        <img src="g1.jpg" alt="Unitree G1 humanoid" loading="lazy">
+      </div>
+    
+      <!-- 🔽 MOVE THE PANEL HERE -->
+      <div id="dynamo-panel" class="deep-dive-panel" role="region" aria-hidden="true">
+        <div class="deep-dive-inner">
+          <div class="deep-dive-grid">
+            <div>
+              <ul>
+                <li>Incorporated GRF into retargeting of motion-tracking data for dynamically feasible gaits.</li>
+                <li>Investigating influence of GRF on BeyondMimic and imitation learning pipelines.</li>
+                <li>Simulation work in IsaacSim and MuJoCo targeting sim-to-real transfer.</li>
+                <li>Metrics: stability improvements, lower contact violation rates.</li>
+              </ul>
+            </div>
+    
+            <div class="deep-dive-images">
+              <video muted playsinline loop preload="metadata">
+                <source src="ab6.mp4" type="video/mp4">
+              </video>
+              <img src="grfs.png" alt="GRF visualization">
             </div>
           </div>
         </div>
       </div>
-    </article>
+
+</article>
+
 
     <!-- Georgia Tech Robotarium (first deep-dive media becomes mp4) -->
     <article class="card" aria-labelledby="robotarium-title">
