@@ -190,6 +190,10 @@ details ul{padding-left:20px;color:var(--text-secondary);font-size:.92rem}
   align-items:start;
 }
 
+.deep-dive-grid > div:first-child {
+  padding-left: 12px;
+}
+
 /* media area: side-by-side on desktop */
 .deep-dive-images{
   display:grid;
@@ -283,14 +287,15 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
   <section class="hero" aria-labelledby="hero-heading">
     <div class="intro">
       <p style="color:var(--accent);font-weight:600;margin-bottom:6px">Steven Haener</p>
-      <h1 id="hero-heading" style="margin:0 0 8px 0">Robotics & Control Engineer</h1>
-      <p class="lead">M.S. Robotics @ Georgia Tech. Specializing in reinforcement learning, sensor integration and fusion, algorithm development, and mechanical design.</p>
+      <h1 id="hero-heading" style="margin:0 0 8px 0">Robotics & Controls Engineer</h1>
+      <p class="lead">M.S. Robotics @ Georgia Tech</p>
+      <p class="lead">Specializing in reinforcement learning, sensor fusion/integration, and hardware design</p>
 
       <div class="hero-stats" aria-hidden="true">
         <span class="stat">RL & controls</span>
         <span class="stat">Bipedal locomotion</span>
         <span class="stat">Sensor Fusion</span>
-        <span class="stat">Sim-to-real</span>
+        <span class="stat">Sim-to-real Gap</span>
       </div>
 
       <div>
@@ -307,7 +312,7 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
   <section id="projects" aria-labelledby="projects-heading">
     <h2 id="projects-heading">Research Projects</h2>
 
-    <!-- Dynamic Mobility Lab (Dynamo) -->
+
   <!-- Dynamic Mobility Lab (Dynamo) -->
 <article class="card" aria-labelledby="dynamo-title">
   <!-- LEFT: main content -->
@@ -317,7 +322,7 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
     <span class="card-date">July 2025 – Present</span>
     <p>
       Training locomotion policies for the Unitree G1 humanoid using ground reaction
-      force (GRF) data to improve dynamic feasibility and robustness.
+      force (GRF) data to improve dynamic feasibility and sample efficiency.
     </p>
 
     <button
@@ -346,10 +351,10 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
         <!-- text + links -->
         <div>
           <ul>
-            <li>Incorporated GRF into retargeting of motion-tracking data for dynamically feasible gaits.</li>
-            <li>Investigating influence of GRF on BeyondMimic and imitation learning pipelines.</li>
+            <li>Published a paper to IROS on incorporating GRF into retargeting of human motion-capture data. </li>
+            <li>Investigated influence of GRF on BeyondMimic and imitation learning pipelines.</li>
             <li>Simulation work in IsaacSim and MuJoCo targeting sim-to-real transfer.</li>
-            <li>Metrics: stability improvements, lower contact violation rates (internal metrics).</li>
+            <li>Metrics: higher sample efficieny, fewer retargeting artifacts, dynamically feasible gaits.</li>
           </ul>
 
           <div class="deep-dive-links">
@@ -404,7 +409,7 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
     <span class="card-subtitle">Georgia Tech Robotarium</span>
     <div id="robotarium-title" class="card-title">ROS2 Backend Migration and Sensor Integration</div>
     <span class="card-date">May 2025 – Present</span>
-    <p>Migrated backend communication to ROS2 for synchronized tracking and multi-robot coordination; integrated additional sensors to support SLAM and perception research.</p>
+    <p>Migrated backend communication to ROS2 for synchronized tracking and multi-robot coordination; integrated additional sensors to support SLAM and controls research.</p>
 
     <button
       class="deep-dive-toggle"
@@ -492,7 +497,7 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
         <div>
           <ul>
             <li>Designed and developed a tarsal foot in Fusion to improve walking stability and reduce actuation effort.</li>
-            <li>Integrated tactile, IMU, and auditory sensors using C++ with actuated tarsal segments.</li>
+            <li>Integrated tactile, IMU, and auditory sensors using C++ to control actuated tarsal segments.</li>
             <li>Developing Python algorithms to classify terrain and adapt control parameters accordingly.</li>
             <li>Authoring a journal paper describing design and test results.</li>
           </ul>
@@ -618,6 +623,10 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
     </div>
   </div>
 </article>
+
+<!-- INDUSTRY -->
+  <section id="experience" aria-labelledby="experience-heading">
+    <h2 id="experience-heading">Industry Experience</h2>
 
 <!-- Campos EPC (Experience) - fixed -->
 <article class="card" aria-labelledby="campos-title">
