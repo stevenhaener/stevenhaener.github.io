@@ -200,6 +200,7 @@ details ul{padding-left:20px;color:var(--text-secondary);font-size:.92rem}
   grid-template-columns: 1fr 1fr;
   gap:12px;
   align-items:start;
+  justify-items: center;
 }
 
 /* PDF viewer styling */
@@ -222,6 +223,8 @@ details ul{padding-left:20px;color:var(--text-secondary);font-size:.92rem}
   border-radius:10px;
   max-height: 300px;
   width:auto;
+  max-width: 100%;   /* ← prevents overflow on smaller cells */
+  margin: 0 auto;
   border:1px solid #475569;
   display:block;
   opacity:0;
@@ -353,7 +356,7 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
   <!-- RIGHT: main image -->
   <div class="card-image">
     <img
-      src="kdmr_overview.png"
+      src="grfs.png"
       alt="Unitree G1 humanoid"
       loading="lazy"
       onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Dynamo'">
