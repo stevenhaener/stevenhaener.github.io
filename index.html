@@ -202,10 +202,23 @@ details ul{padding-left:20px;color:var(--text-secondary);font-size:.92rem}
   align-items:start;
 }
 
+/* PDF viewer styling */
+.deep-dive-pdf{
+  width:100%;
+  height:260px;
+  border-radius:10px;
+  border:1px solid #475569;
+  background:#0f172a;
+}
+
+/* ensure PDFs align with images/videos */
+.deep-dive-images iframe{
+  display:block;
+}
+
 /* images */
 .deep-dive-images img,
 .deep-dive-images video{
-  width:100%;
   border-radius:10px;
   max-height: 300px;
   width:auto;
@@ -315,8 +328,9 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
     <h2 id="projects-heading">Research Projects</h2>
 
 
-  <!-- Dynamic Mobility Lab (Dynamo) -->
+<!-- Dynamic Mobility Lab (Dynamo) -->
 <article class="card" aria-labelledby="dynamo-title">
+
   <!-- LEFT: main content -->
   <div class="card-content">
     <span class="card-subtitle">Dynamic Mobility Lab (Dynamo)</span>
@@ -337,27 +351,28 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
     </button>
   </div>
 
-  <!-- RIGHT: main image -->
+  <!-- RIGHT: main preview (PDF embedded instead of img) -->
   <div class="card-image">
-    <img
-      <!-- src="g1.jpg" -->
+    <iframe
       src="kdmr_overview.pdf"
-      alt="Unitree G1 humanoid"
-      loading="lazy"
-      onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=Dynamo'">
+      class="deep-dive-pdf"
+      title="KDMR Paper Overview"
+      loading="lazy">
+    </iframe>
   </div>
 
   <!-- FULL-WIDTH: deep dive -->
   <div id="dynamo-panel" class="deep-dive-panel" role="region" aria-hidden="true">
     <div class="deep-dive-inner">
       <div class="deep-dive-grid">
+
         <!-- text + links -->
         <div>
           <ul>
-            <li>Published a paper to IROS on incorporating GRF into retargeting of human motion-capture data. </li>
+            <li>Published a paper to IROS on incorporating GRF into retargeting of human motion-capture data.</li>
             <li>Investigated influence of GRF on BeyondMimic and imitation learning pipelines.</li>
             <li>Simulation work in IsaacSim and MuJoCo targeting sim-to-real transfer.</li>
-            <li>Metrics: higher sample efficieny, fewer retargeting artifacts, dynamically feasible gaits.</li>
+            <li>Metrics: higher sample efficiency, fewer retargeting artifacts, dynamically feasible gaits.</li>
           </ul>
 
           <div class="deep-dive-links">
@@ -380,7 +395,8 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
         </div>
 
         <!-- media -->
-        <div class="deep-dive-images" aria-hidden="false">
+        <div class="deep-dive-images">
+
           <video
             class="deep-video"
             muted
@@ -393,11 +409,12 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
             <img src="robotarium.jpg" alt="Robotarium swarm robots and tracking">
           </video>
 
-          <img
+          <iframe
             src="mean_reward.pdf"
-            alt="GRF visualization on Unitree G1"
-            loading="lazy"
-            onerror="this.src='https://placehold.co/400x300/1e293b/334155?text=GRF+Viz'">
+            class="deep-dive-pdf"
+            title="Mean Reward Plot">
+          </iframe>
+
         </div>
       </div>
     </div>
