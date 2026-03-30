@@ -219,25 +219,18 @@ details ul{padding-left:20px;color:var(--text-secondary);font-size:.92rem}
 
 /* images */
 .deep-dive-images img,
-.deep-dive-images video{
-  border-radius:10px;
-  max-height: 300px;
-  width:auto;
-  max-width: 100%;   /* ← prevents overflow on smaller cells */
+.deep-dive-images video {
+  border-radius: 10px;
+  width: 100%;           /* ← both fill their column */
+  height: 260px;         /* ← fixed shared height */
+  object-fit: contain;   /* ← scale down without cropping */
+  max-width: 100%;
   margin: 0 auto;
-  border:1px solid #475569;
-  display:block;
-  opacity:0;
+  border: 1px solid #475569;
+  display: block;
+  opacity: 0;
   transform: translateY(6px);
   transition: opacity 360ms ease, transform 360ms ease;
-}
-
-/* ensure video fits and preserves aspect */
-.deep-dive-images video{
-  width:100%;
-  height:auto;
-  max-height:none;
-  object-fit:contain;
 }
 
 /* when panel is open, animate media in */
