@@ -340,7 +340,7 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
     <span class="card-date">July 2025 – Present</span>
     <p>
       Training locomotion policies for the Unitree G1 humanoid using ground reaction
-      force (GRF) data to improve dynamic feasibility and sample efficiency.
+      force (GRF) and motion capture data to improve dynamic feasibility and sample efficiency.
     </p>
 
     <button
@@ -370,7 +370,7 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
         <div>
           <ul>
             <li>Published a paper to IROS on incorporating GRF into retargeting of human motion-capture data.</li>
-            <li>Investigated influence of GRF on BeyondMimic and imitation learning pipelines.</li>
+            <li>Investigated influence of GRF on BeyondMimic reinforcement learning and imitation learning pipelines.</li>
             <li>Simulation work in IsaacSim and MuJoCo targeting sim-to-real transfer.</li>
             <li>Metrics: higher sample efficieny, fewer retargeting artifacts, dynamically feasible gaits.</li>
           </ul>
@@ -449,7 +449,7 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
       <div class="deep-dive-grid">
         <div>
           <ul>
-            <li>Handled real-time pose streams for swarm robotics testbeds.</li>
+            <li>Handled real-time pose streams for a swarm robotics testbed accessible to the general public.</li>
             <li>Upgraded hardware with SLAM distance sensors and IMUs to expand researchers' experimental capabilities.</li>
             <li>Worked on reliability, latency reduction, and deterministic message flows.</li>
           </ul>
@@ -514,9 +514,11 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
       <div class="deep-dive-grid">
         <div>
           <ul>
-            <li>Designed and developed a tarsal foot in Fusion to improve walking stability and reduce actuation effort.</li>
-            <li>Integrated tactile, IMU, and auditory sensors using C++ to control actuated tarsal segments.</li>
-            <li>Developing Python algorithms to classify terrain and adapt control parameters accordingly.</li>
+            <li>Designed and developed a foot in Fusion for a bipedal Cassie robot aimed at improving walking stability, slower
+walking gaits, and reduced actuation effort, leading to a longer lasting robot and more natural-looking movement.</li>
+            <li>Integrated tactile, IMU, and auditory sensors using C++ to control actuated tarsal segments on both sides of the foot.</li>
+            <li>Developing Python algorithm to leverage these additional signals for classification of the terrain being walked on,
+informing our control system of the terrain characteristics so it can tune its strategy for increased stability.</li>
             <li>Authoring a journal paper describing design and test results.</li>
           </ul>
           <div class="deep-dive-links">
@@ -558,7 +560,7 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
     <span class="card-subtitle">U of I Rehabilitation Robotics Lab</span>
     <div id="thumb-title" class="card-title">Thumb Rehabilitation Module</div>
     <span class="card-date">May 2020 – Sept 2020</span>
-    <p>Stroke rehabilitation device prototype focused on thumb mobilization and user testing.</p>
+    <p>Designed a robotic rehabilitation device prototype focused on thumb mobilization and user testing for stroke patients.</p>
 
     <button
       class="deep-dive-toggle"
@@ -580,8 +582,8 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
       <div class="deep-dive-grid">
         <div>
           <ul>
-            <li>Designed and prototyped a thumb module using SolidWorks and 3D printing.</li>
-            <li>Collected force-sensor data to validate mechanical design and effectiveness.</li>
+            <li>Designed and prototyped a multi-link thumb module using SolidWorks and 3D printing.</li>
+            <li>Collected force-sensor data and conducted FEA analysis to validate mechanical design and effectiveness.</li>
             <li>Worked with DAQ, PLCs, and electric actuators; kept comprehensive procurement and test logs.</li>
           </ul>
         </div>
@@ -625,9 +627,10 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
       <div class="deep-dive-grid">
         <div>
           <ul>
-            <li>Built first working prototype of stalk-strength measurement machine.</li>
-            <li>Performed multiple test rounds and field data collection across strains.</li>
-            <li>Implemented hardware, software, and data analysis for research publications.</li>
+            <li>Designed and developed a machine to measure the strength of wheat stalks with the end goal of crossbreeding the stronger strains of wheat to create a crop that’s more resistant to inclement weather.</li>
+            <li>Integrated rotary encoders and force sensors to correlate higher force readings per meter with stronger stalks.</li>
+            <li>Developed data collection and GUI algorithms in C++ and Python to be able to easily use the machine in the field.</li>
+            <li>Collected field data on various wheat strains to analyze and found stronger breeds to be used in crossbreeding.</li>
           </ul>
         </div>
 
@@ -719,8 +722,8 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
       <div class="deep-dive-grid">
         <div>
           <ul>
-            <li>Conducted building condition assessments and mechanical system evaluations.</li>
-            <li>Prepared technical reports, cost estimates, and remediation recommendations.</li>
+            <li>Verified the conditions of building structures and mechanical systems in large commercial spaces to ensure the property buyer understands the scope of repair costs of structures and systems that were not properly maintained.</li>
+            <li>Prepared technical reports on findings with cost tables and photo logs to provide clients with engineering and regulatory recommendations for the next 12 years to guarantee optimal repair and upkeep of the property.</li>
             <li>Researched building-science topics and implemented tight-deadline deliverables.</li>
           </ul>
         </div>
@@ -764,8 +767,9 @@ footer{text-align:center;padding:72px 20px;color:#475569;font-size:.82rem;border
       <div class="deep-dive-grid">
         <div>
           <ul>
-            <li>Collaborated with cross-functional teams to automate rock removal from farm fields.</li>
+            <li>Collaborated with a team of mechanical and software engineers towards automating the removal of boulders from farm fields using drone-mounted cameras and an outfitted skid steer, reducing manual labor costs for farmers.</li>
             <li>Performed FEA and design optimizations reducing rock-picker weight by ~40%.</li>
+            <li>Rapidly prototyped using plasma cutting and welding experience and verified successful designs with field tests.</li>
           </ul>
         </div>
 
