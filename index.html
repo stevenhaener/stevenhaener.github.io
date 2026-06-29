@@ -301,14 +301,14 @@ body::before{
     radial-gradient(circle at 25% 28%, rgba(56,189,248,.30), transparent 42%),
     radial-gradient(circle at 78% 32%, rgba(34,211,238,.24), transparent 44%),
     radial-gradient(circle at 55% 78%, rgba(251,191,36,.18), transparent 46%);
-  animation: ambient-drift 20s ease-in-out infinite alternate;
+  animation: ambient-drift 16s ease-in-out infinite alternate;
   will-change: transform;
   pointer-events:none;
 }
 @keyframes ambient-drift{
-  0%  {transform:translate(-4%,-3%) rotate(0deg)  scale(1)}
-  50% {transform:translate(4%, 3%)  rotate(9deg)  scale(1.14)}
-  100%{transform:translate(-2%,5%)  rotate(-6deg) scale(1.06)}
+  0%  {transform:translate(-9%,-6%)  rotate(0deg)   scale(1)}
+  50% {transform:translate(9%, 7%)   rotate(16deg)  scale(1.22)}
+  100%{transform:translate(-5%,10%)  rotate(-11deg) scale(1.1)}
 }
 
 /* --- Faint tech grid, faded out toward the edges --- */
